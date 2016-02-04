@@ -1,0 +1,78 @@
+SciDAVis 0.2.4 project file
+<scripting-lang>	muParser
+<windows>	2
+<table>
+2225
+<table creation_time="2015-15-05 05:15:14:061" caption_spec="%n%C{ - }%c" name="Table1" columns="2" rows="30"><comment><![CDATA[]]></comment><column creation_time="2015-15-05 05:15:14:061" caption_spec="%n%C{ - }%c" name="1" type="TypeDouble" mode="Numeric" plot_designation="X"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2015-15-05 05:15:14:062" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2015-15-05 05:15:14:062" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">1.0000000000000000e+00</row><row type="TypeDouble" index="1" invalid="no">2.0000000000000000e+00</row><row type="TypeDouble" index="2" invalid="no">4.0000000000000000e+00</row><row type="TypeDouble" index="3" invalid="no">8.0000000000000000e+00</row><row type="TypeDouble" index="4" invalid="no">1.6000000000000000e+01</row></column><column creation_time="2015-15-05 05:15:14:062" caption_spec="%n%C{ - }%c" name="2" type="TypeDouble" mode="Numeric" plot_designation="Y"><comment><![CDATA[]]></comment><input_filter><simple_filter creation_time="2015-15-05 05:15:14:062" caption_spec="%n%C{ - }%c" name="InputFilter" filter_name="String2DoubleFilter"><comment><![CDATA[]]></comment></simple_filter></input_filter><output_filter><simple_filter creation_time="2015-15-05 05:15:14:062" caption_spec="%n%C{ - }%c" name="OutputFilter" format="g" digits="6" filter_name="Double2StringFilter"><comment><![CDATA[]]></comment></simple_filter></output_filter><row type="TypeDouble" index="0" invalid="no">8.1449694171000004e+00</row><row type="TypeDouble" index="1" invalid="no">7.4781696942000000e+00</row><row type="TypeDouble" index="2" invalid="no">6.9196838498000002e+00</row><row type="TypeDouble" index="3" invalid="no">6.4846352355999999e+00</row><row type="TypeDouble" index="4" invalid="no">5.7397929122000004e+00</row></column><column_width column="0">120</column_width><column_width column="1">120</column_width></table>
+geometry	0	0	572	404	
+
+</table>
+<multiLayer>
+Graph1	1	1	15.05.15 5:18
+geometry	maximized	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	1259	535
+Alignement	0	0
+<graph>
+ggeometry	5	5	1311	602
+PlotTitle	Заголовок	#000000	4228
+<Antialiasing>1</Antialiasing>
+Background	#ffffff	255
+Margin	0
+Border	0	#3c3c3c
+grid	0	0	0	0	#0000ff	0	0	#a0a0a4	2	0	#0000ff	0	0	#a0a0a4	2	0	0	0	2	0
+EnabledAxes	1	0	1	0	
+AxesTitles	Заголовок оси X	Заголовок оси Y			
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	4	5124	4
+TitleFont	Droid Sans	12	75	0	0	0
+ScaleFont0	Droid Sans	10	75	0	0	0
+ScaleFont1	Droid Sans	10	75	0	0	0
+ScaleFont2	Droid Sans	10	75	0	0	0
+ScaleFont3	Droid Sans	10	75	0	0	0
+AxisFont0	Droid Sans	10	50	0	0	0
+AxisFont1	Droid Sans	10	50	0	0	0
+AxisFont2	Droid Sans	10	50	0	0	0
+AxisFont3	Droid Sans	10	50	0	0	0
+EnabledTickLabels	1	1	1	1	
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#212121	#212121	#212121	#212121
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	255
+curve	Table1_1	Table1_2	2	1	0	0	1	7	1	0	0	0	0	41	1	2	0	0	29	1
+FunctionCurve	0,LinearFit1,x,1,16	2			0	1	1	0	1	0	0	0	19	0	0	41	0	2	0	1990928352	32544	1
+<formula>
+B=7.83108122971667
+A=-0.141553388376882
+
+A*x+B
+</formula>
+scale	0	5.5	8.5	0	8	5	0	0
+scale	1	5.5	8.5	0	8	5	0	0
+scale	2	0	18	0	8	5	0	0
+scale	3	0	18	0	8	5	0	0
+LabelsFormat	0	4	0	4	0	4	0	4	
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1	
+MinorTicks	1	1	1	1	
+TicksLength	5	9
+DrawAxesBackbone	1
+AxesLineWidth	1
+LabelsRotation	0	0
+<legend>	0.409090909090909	8.40825688073394	Droid Sans	10	50	0	0	0	#000000	1	0	#ffffff	0	\c{1}Table1_2	\c{2}LinearFit1	</legend>
+</graph>
+</multiLayer>
+<log>
+[15.05.15 5:18	Plot: ''Graph1'']
+Линейная регрессия приближение по набору данных: Table1_2, используя функцию: A*x+B
+Y standard errors: Unknown
+От значения по x = 1 до значения по x = 16
+B (y-intercept) = 7,83108122971667 +/- 0,249476923041014
+A (slope) = -0,141553388376882 +/- 0,0302091281601062
+--------------------------------------------------------------------------------------
+Chi^2/doF = 0,135793603920026
+R^2 = 0,879791090224565
+---------------------------------------------------------------------------------------
+</log>

@@ -1,0 +1,17 @@
+init black
+
+turn
+
+move e 6
+
+turn
+
+move e 7
+
+turn
+
+move c 4
+
+turn
+
+lose

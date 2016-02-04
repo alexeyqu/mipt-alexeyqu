@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1449802579 source:q:\dropbox\othello_proj\othello.cpp
+	"othello.h"
+
+1449802427 q:\dropbox\othello_proj\othello.h
+	<iostream>
+	<stdlib.h>
+	<stdint.h>
+	<vector>
+	<string>
+	<assert.h>
+	<stdio.h>
+	<unistd.h>
+	<limits.h>
+	<fstream>
+	<float.h>
+
+1449787295 source:q:\dropbox\othello_proj\main.cpp
+	"othello.h"
+

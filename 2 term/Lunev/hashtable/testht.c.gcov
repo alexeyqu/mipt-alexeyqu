@@ -1,0 +1,135 @@
+        -:    0:Source:testht.c
+        -:    0:Programs:2
+        -:    1:#include "hashtable.h"
+        -:    2:
+        -:    3:int UNLUCK = 10;
+        -:    4:
+        1:    5:int main()
+        -:    6:{
+        1:    7:	int my_max_hashvalue = 100;
+        1:    8:	int my_max_key_length = 20;
+        1:    9:	int my_max_blob_length = 20;
+        1:   10:	int error_value = 0;
+        -:   11:
+        1:   12:	UNLUCK = 0;
+        -:   13:
+        1:   14:	hashtable_t	my_hashtable1 = hashtable_construct (my_max_hashvalue, &error_value);
+        -:   15:
+        1:   16:	hashtable_clear (my_hashtable1);
+        1:   17:	hashtable_add (my_hashtable1, "hello", " world!", 5);
+        1:   18:	hashtable_add (my_hashtable1, "hell", "is world!", 6);
+        1:   19:	hashtable_add (my_hashtable1, "help", "i need smb", 7);
+        -:   20:
+        1:   21:	hashtable_del (my_hashtable1, "hell");
+        1:   22:	hashtable_del (my_hashtable1, "help");
+        1:   23:	hashtable_del (my_hashtable1, "hel");
+        1:   24:	hashtable_del (my_hashtable1, "hello");
+        1:   25:	hashtable_destruct (my_hashtable1);
+        -:   26:
+        1:   27:	UNLUCK = 100;
+        -:   28:
+        1:   29:	hashtable_t my_hashtable = hashtable_construct (my_max_hashvalue, NULL);
+        1:   30:	my_hashtable = hashtable_construct (999999, &error_value);
+        -:   31:	
+        1:   32:	UNLUCK = 10;
+        -:   33:
+        1:   34:	register int i = 0;
+        -:   35:
+       11:   36:	for (i = 0; i < 10; i++)
+        -:   37:	{
+       10:   38:		my_hashtable = hashtable_construct (my_max_hashvalue, &error_value);
+        -:   39:
+       10:   40:		hashtable_clear (my_hashtable);
+       10:   41:		hashtable_add (my_hashtable, "hello", " world!", 5);
+       10:   42:		hashtable_add (my_hashtable, "hell", "is world!", 6);
+       10:   43:		hashtable_add (my_hashtable, "help", "i need smb", 7);
+        -:   44:
+       10:   45:		hashtable_del (my_hashtable, "hell");
+       10:   46:		hashtable_del (my_hashtable, "help");
+       10:   47:		hashtable_del (my_hashtable, "hel");
+       10:   48:		hashtable_del (my_hashtable, "hello");
+       10:   49:		hashtable_destruct (my_hashtable);
+        -:   50:	}
+        -:   51:
+        1:   52:	UNLUCK = 100;
+        -:   53:
+        1:   54:	my_hashtable = hashtable_construct (my_max_hashvalue, &error_value);
+        -:   55:
+        1:   56:	UNLUCK = 0;
+        -:   57:
+        1:   58:	my_hashtable = hashtable_construct (my_max_hashvalue, &error_value);
+        -:   59:
+        1:   60:	hashtable_clear (my_hashtable);
+        -:   61:
+        1:   62:	hashtable_add (my_hashtable, "hello", ", world!", 5);
+        -:   63:
+        1:   64:	hashtable_add (my_hashtable, "hi", ", username!", 10);
+        -:   65:
+        1:   66:	hashtable_add (my_hashtable, NULL, ", username!", 10);
+        1:   67:	hashtable_add (my_hashtable, "hello!, ", NULL, 10);
+        1:   68:	hashtable_add (my_hashtable, "hijdiodnoqasnduianiasniucasnf icusabnisanciuasnsauidniasudhasuidnasidsabdiasndnasiodno", NULL, 10);
+        1:   69:	hashtable_add (my_hashtable, "hi_there", ", username!", -1);
+        1:   70:	hashtable_add (my_hashtable, "hi", ", username!", 100000);
+        -:   71:
+        -:   72:
+        1:   73:	hashtable_del (my_hashtable, NULL);
+        1:   74:	hashtable_del (my_hashtable, "hijdiodnoqasnduianiasniucasnf icusabnisanciuasnsauidniasudhasuidnasidsabdiasndnasiodno");
+        -:   75:
+        1:   76:	UNLUCK = 1;
+        1:   77:	hashtable_del (my_hashtable, "hello");
+        1:   78:	UNLUCK = 0;
+        -:   79:
+        1:   80:	hashtable_del (my_hashtable, "hello");
+        1:   81:	hashtable_clear (NULL);
+        -:   82:
+        1:   83:	hashtable_del (my_hashtable, "hello");
+        -:   84:
+        1:   85:	ht_iterator_t it0 = iterator_construct (NULL, &error_value);
+        1:   86:	it0 = iterator_construct (my_hashtable, NULL);
+        1:   87:	UNLUCK = 100;
+        1:   88:	it0 = iterator_construct (my_hashtable, &error_value);
+        1:   89:	UNLUCK = 0;
+        -:   90:
+        1:   91:	char key [my_max_key_length];
+        1:   92:	char blob[my_max_blob_length];
+        -:   93:	int blob_size;
+        -:   94:
+        1:   95:	iterator_get (NULL, key, blob, &blob_size);
+        1:   96:	iterator_get (it0, key, blob, NULL);
+        -:   97:
+        1:   98:	iterator_get (it0, key, NULL, &blob_size);
+        1:   99:	iterator_get (it0, NULL, blob, &blob_size);
+        -:  100:
+        1:  101:	hashtable_add (my_hashtable, "hello", " world!", 5);
+        1:  102:	hashtable_add (my_hashtable, "hell", "is world!", 6);
+        1:  103:	hashtable_add (my_hashtable, "help", "i need smb", 7);
+        -:  104:
+        1:  105:	hashtable_destruct (my_hashtable);
+        -:  106:
+        1:  107:	iterator_destruct (it0);
+        -:  108:
+        1:  109:	my_hashtable = hashtable_construct (my_max_hashvalue, &error_value);
+        -:  110:
+        1:  111:	ht_iterator_t it2 = iterator_construct (my_hashtable, &error_value);
+        -:  112:
+        1:  113:	iterator_destruct (it2);
+        -:  114:
+        1:  115:	ht_iterator_t it1 = iterator_construct (my_hashtable, &error_value);
+        -:  116:
+        1:  117:	hashtable_clear (my_hashtable);
+        1:  118:	hashtable_add (my_hashtable, "hello", "worlddd!", 7);
+        1:  119:	hashtable_add (my_hashtable, "hell", "is world!", 6);
+        1:  120:	hashtable_add (my_hashtable, "help", "i need smb", 10);
+        1:  121:	hashtable_add (my_hashtable, "not", "just anbd!", 10);
+        -:  122:
+        1:  123:		memset (blob, 0, my_max_blob_length);
+        6:  124:	while (iterator_get (it1, key, blob, &blob_size) >= 0)
+        -:  125:	{
+        4:  126:		fprintf(stderr, "%s\n", blob);
+        4:  127:		memset (blob, 0, my_max_blob_length);
+        -:  128:	}
+        -:  129:
+        1:  130:	hashtable_destruct (my_hashtable);
+        -:  131:
+        1:  132:	return 0;
+        -:  133:}

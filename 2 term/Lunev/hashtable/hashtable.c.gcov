@@ -1,0 +1,774 @@
+        -:    0:Source:hashtable.c
+        -:    0:Programs:2
+        -:    1:
+        -:    2://-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        -:    3:// hashtable.c
+        -:    4://-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        -:    5:
+        -:    6:#include "hashtable.h"
+        -:    7:
+        -:    8:#define DEBUG 1 // ?
+        -:    9:
+        -:   10:#ifndef DEBUG
+        -:   11:    #error Define DEBUG as 0 or 1!
+        -:   12:#endif
+        -:   13:
+        -:   14:#define HTEC( func ) if (hashtable_error_catch (func) == HT_ERR) RETURN (!"Here it was:");
+        -:   15:
+        -:   16:#define KEY_CHECK_( key )\
+        -:   17:    if (key == NULL)\
+        -:   18:    {\
+        -:   19:        return hashtable_error_catch (ELEM_NULL_KEY);\
+        -:   20:    }\
+        -:   21:    if (strlen (key) >= MAX_KEY_LEN)\
+        -:   22:    {\
+        -:   23:        return hashtable_error_catch (ELEM_WR_RANGE);\
+        -:   24:    }
+        -:   25:
+        -:   26:#define BLOB_CHECK_( blob )\
+        -:   27:    if (blob == NULL)\
+        -:   28:    {\
+        -:   29:        return hashtable_error_catch (ELEM_NULL_BLOB);\
+        -:   30:    }
+        -:   31:
+        -:   32:#define INDEX_CHECK_( index )\
+        -:   33:    if (index > list->length)\
+        -:   34:    {\
+        -:   35:        return hashtable_error_catch (LIST_WR_NDX_RANGE);\
+        -:   36:    }
+        -:   37:
+        -:   38:#define LIST_CHECK_( list ) HTEC (list_is_ok (list));
+        -:   39:
+        -:   40:#define ELEM_CHECK_( elem ) HTEC (elem_is_ok (elem));
+        -:   41:
+        -:   42:#define HASHTABLE_CHECK_( hashtable ) HTEC (hashtable_is_ok (hashtable));
+        -:   43:
+        -:   44:#define ITERATOR_CHECK_( iterator ) HTEC (iterator_is_ok (iterator));
+        -:   45:
+        -:   46:#define HASH_CHECK_( hash )\
+        -:   47:if (hash == NULL)\
+        -:   48:{\
+        -:   49:	return HT_NULL;\
+        -:   50:}
+        -:   51:
+        -:   52:#if (DEBUG == 1)
+        -:   53:    #define OUT fprintf
+        -:   54:    #define RETURN( cond )\
+        -:   55:        if (!(cond))\
+        -:   56:        {\
+        -:   57:            fprintf (stdout, "Assserion <%s> failed!\n ", #cond);\
+        -:   58:            fprintf (stdout, "Info: file %s, line %d\n ", __FILE__, __LINE__);\
+        -:   59:            return HT_ERR;\
+        -:   60:        }
+        -:   61:#else
+        -:   62:    #define OUT if (0)
+        -:   63:    #define RETURN( cond ) return HT_ERR
+        -:   64:#endif
+        -:   65:
+        -:   66:const unsigned int POISON = 0xDEAD;
+        -:   67:
+        -:   68:#define MAX_KEY_LEN 50
+        -:   69:#define MAX_BLOB_LEN 1000
+        -:   70:#define MAX_HASHVALUE 10000
+        -:   71:
+        -:   72:/*typedef struct dpiece_t
+        -:   73:{
+        -:   74:	char key[MAX_KEY_LEN];
+        -:   75:	char* blob;
+        -:   76:	int blob_size;
+        -:   77:} dpiece_t;*/
+        -:   78:
+        -:   79:extern int UNLUCK;
+        -:   80:
+        -:   81:typedef struct elem_t elem_t;
+        -:   82:
+        -:   83:struct elem_t
+        -:   84:{
+        -:   85:	char key[MAX_KEY_LEN];
+        -:   86:	char blob[MAX_BLOB_LEN];
+        -:   87:	int blob_size;
+        -:   88:
+        -:   89:	elem_t* next;
+        -:   90:	elem_t* prev;
+        -:   91:};
+        -:   92:
+        -:   93:typedef struct list_t
+        -:   94:{
+        -:   95:	unsigned int length;
+        -:   96:	elem_t* head;
+        -:   97:} list_t;
+        -:   98:
+        -:   99:struct hashtable_t
+        -:  100:{
+        -:  101:	list_t* buckets;
+        -:  102:	unsigned int max_hashvalue;
+        -:  103:};
+        -:  104:
+        -:  105:struct ht_iterator_t
+        -:  106:{
+        -:  107:	hashtable_t hashtable;
+        -:  108:	unsigned cur_bucket;
+        -:  109:	elem_t* cur_elem;
+        -:  110:};
+        -:  111:
+        -:  112:enum ERR_ELEM
+        -:  113:{
+        -:  114:    ELEM_OK             = 1000,
+        -:  115:    ELEM_NULL           = 1001,
+        -:  116:    ELEM_NULL_KEY       = 1002,
+        -:  117:    ELEM_NULL_BLOB      = 1003,
+        -:  118:    ELEM_WR_RANGE       = 1004
+        -:  119:};
+        -:  120:
+        -:  121:enum ERR_LIST
+        -:  122:{
+        -:  123:    LIST_OK           = 2000,
+        -:  124:    LIST_NULL         = 2001,
+        -:  125:    LIST_WR_NDX_RANGE = 2002
+        -:  126:};
+        -:  127:
+        -:  128:enum ERR_HASHTABLE
+        -:  129:{
+        -:  130:    HT_ERR          = -1,
+        -:  131:    HT_OK           = 3000,
+        -:  132:    HT_NULL         = 3001,
+        -:  133:    HT_WR_HV_RANGE  = 3002,
+        -:  134:    HT_WR_INPUT     = 3004
+        -:  135:};
+        -:  136:
+        -:  137:enum ERR_ITERATOR
+        -:  138:{
+        -:  139:	IT_OK 		= 4000,
+        -:  140:	IT_NULL 	= 4001
+        -:  141:};
+        -:  142:
+        -:  143:static int hashtable_error_catch (int error);
+        -:  144:static void* my_calloc (size_t num, size_t size);
+        -:  145:
+        -:  146://==============================================================================
+        -:  147://------------------------------------------------------------------------------
+        -:  148://------------------------------------HASH--------------------------------------
+        -:  149://------------------------------------------------------------------------------
+        -:  150://==============================================================================
+        -:  151:
+       80:  152:static int ROL (int arg, int shift)
+        -:  153:{
+       80:  154:    return (arg << shift) | (arg >> (sizeof(arg)*sizeof (int) - shift));;
+        -:  155:}
+        -:  156:
+       19:  157:static int hash (const char* key, int* hash)
+        -:  158:{
+       19:  159:    int sum = 0;
+        -:  160:
+       19:  161:    unsigned int length = strlen (key);
+       19:  162:    register unsigned int i = 0;
+       99:  163:    for (i = 0; i < length; i++)
+        -:  164:    {
+       80:  165:        sum += sum ^ ROL ((int) key[i], 1);
+       80:  166:        sum = sum ^ key[i];
+        -:  167:    }
+        -:  168:
+       19:  169:    sum /= strlen (key);
+        -:  170:
+       19:  171:    *hash = sum;
+        -:  172:
+       19:  173:    *hash = key[0]; //--that's another hash function (easier to cause collisions)
+        -:  174:
+       19:  175:    return HT_OK;
+        -:  176:}
+        -:  177:
+        -:  178://==============================================================================
+        -:  179://------------------------------------------------------------------------------
+        -:  180://------------------------------------ELEM--------------------------------------
+        -:  181://------------------------------------------------------------------------------
+        -:  182://==============================================================================
+        -:  183:
+      758:  184:static int elem_is_ok (elem_t* elem) 
+        -:  185:{
+      758:  186:	if (elem == NULL)
+        -:  187:	{
+        7:  188:		return ELEM_NULL;
+        -:  189:	}
+        -:  190:
+      751:  191:	return HT_OK;
+        -:  192:}
+        -:  193:
+      698:  194:static int elem_construct (elem_t** new_elem, char key[], char blob[], int blob_size) 
+        -:  195:{
+      698:  196:	*new_elem = (elem_t*) my_calloc (1, sizeof (elem_t));
+        -:  197:
+      698:  198:    if (hashtable_error_catch (elem_is_ok (*new_elem)) == HT_ERR) 
+        -:  199:    {
+        7:  200:        free (*new_elem);
+        7:  201:        return HT_ERR;
+        -:  202:    }
+        -:  203:
+      691:  204:	strcpy ((*new_elem)->key, key);
+      691:  205:	memmove ((*new_elem)->blob, blob, blob_size);
+        -:  206:
+      691:  207:	(*new_elem)->blob_size = blob_size;
+      691:  208:	(*new_elem)->prev = NULL;
+      691:  209:	(*new_elem)->next = NULL;
+        -:  210:
+      691:  211:	return HT_OK;
+        -:  212:}
+        -:  213:
+       12:  214:static int elem_destruct (elem_t* elem)
+        -:  215:{
+       12:  216:	register unsigned int i = 0;
+      612:  217:	for (i = 0; i < MAX_KEY_LEN; i++)
+        -:  218:	{
+      600:  219:		elem->key[i] = POISON;
+        -:  220:	}
+        -:  221:
+       69:  222:	for (i = 0; i < elem->blob_size; i++)
+        -:  223:	{
+       57:  224:		elem->blob[i] = POISON;
+        -:  225:	}
+        -:  226:
+       12:  227:	elem->prev = NULL;
+       12:  228:	elem->next = NULL;
+       12:  229:	elem->blob_size = 0;
+        -:  230:
+       12:  231:	free (elem);
+        -:  232:
+       12:  233:	return HT_OK;
+        -:  234:}
+        -:  235:
+        -:  236://==============================================================================
+        -:  237://------------------------------------------------------------------------------
+        -:  238://------------------------------------LIST--------------------------------------
+        -:  239://------------------------------------------------------------------------------
+        -:  240://==============================================================================
+        -:  241:
+     3636:  242:static int list_is_ok (list_t* list) 
+        -:  243:{
+     3636:  244:    elem_t* cur_elem = list->head;
+        -:  245:
+     3636:  246:    unsigned int i = 0;
+     3696:  247:    for (i = 0; i < list->length; i++)
+        -:  248:    {
+      120:  249:        if (cur_elem->next == NULL ||
+       60:  250:                (cur_elem->next == NULL &&
+       60:  251:                i > 0) ||
+       60:  252:            cur_elem->next->prev != cur_elem) 
+        -:  253:        {
+    #####:  254:        	return LIST_NULL;
+        -:  255:        }
+        -:  256:
+       60:  257:        if (hashtable_error_catch (elem_is_ok (cur_elem)) != HT_OK)
+        -:  258:        {
+    #####:  259:            return HT_ERR;
+        -:  260:        }
+        -:  261:
+       60:  262:        cur_elem = cur_elem->next;
+        -:  263:    }
+        -:  264:
+     3636:  265:    return LIST_OK;
+        -:  266:}
+        -:  267:
+      686:  268:static int list_construct (list_t* list) 
+        -:  269:{
+      686:  270:	if (elem_construct (&list->head, "\0", "\0", 0) != HT_OK)
+        -:  271:    {
+        7:  272:        return HT_ERR;
+        -:  273:    }
+        -:  274:
+      679:  275:	list->length = 0;
+        -:  276:
+      679:  277:    return LIST_OK;
+        -:  278:}
+        -:  279:
+      383:  280:static int list_destruct (list_t* list)
+        -:  281:{
+      383:  282:    elem_t* cur_elem = list->head;
+      383:  283:    elem_t* next_elem = NULL;
+        -:  284:
+      383:  285:    register unsigned int cur_index = 0;
+      393:  286:    for (cur_index = 0; cur_index < list->length; cur_index++)
+        -:  287:    {
+       10:  288:        next_elem = cur_elem->next;
+        -:  289:
+       10:  290:        elem_destruct (cur_elem);
+        -:  291:
+       10:  292:        cur_elem = next_elem;
+        -:  293:    }
+        -:  294:
+      383:  295:    list->length = POISON;
+        -:  296:
+      383:  297:    return LIST_OK;
+        -:  298:}
+        -:  299:
+       12:  300:static int list_add_elem (list_t* list, elem_t* elem, unsigned int index)
+        -:  301:{
+       12:  302:    elem_t* cur_elem = list->head;
+        -:  303:
+       12:  304:    elem->next = cur_elem->next;
+       12:  305:    elem->prev = cur_elem;
+       12:  306:    cur_elem->next = elem;
+       12:  307:    if (elem->next != NULL) 
+        -:  308:    {
+        8:  309:    	elem->next->prev = elem;
+        -:  310:    }
+        -:  311:
+       12:  312:    list->length++;
+        -:  313:
+       12:  314:    return LIST_OK;
+        -:  315:}
+        -:  316:
+        2:  317:static int list_delete_elem (list_t* list, unsigned int index)
+        -:  318:{
+        2:  319:    elem_t* cur_elem = list->head;
+        -:  320:
+        2:  321:    register unsigned int cur_index = 0;
+        5:  322:    for (cur_index = 0; cur_index < index; cur_index++)
+        -:  323:    {
+        3:  324:        cur_elem = cur_elem->next;
+        -:  325:    }
+        -:  326:
+        2:  327:    cur_elem->prev->next = cur_elem->next;
+        2:  328:    if (cur_elem->next != NULL)
+        -:  329:    {
+        2:  330:    	cur_elem->next->prev = cur_elem->prev;
+        -:  331:    }
+        -:  332:
+        2:  333:    elem_destruct (cur_elem);
+        -:  334:
+        2:  335:    list->length--;
+        -:  336:
+        2:  337:    return LIST_OK;
+        -:  338:}
+        -:  339:
+       19:  340:static int list_find_key (list_t* list, const char* key, int* index)
+        -:  341:{
+       19:  342:    *index = -1;
+        -:  343:
+       19:  344:    elem_t* cur_elem = list->head;
+        -:  345:
+       19:  346:    register unsigned int cur_index = 0;
+       46:  347:    for (cur_index = 0; cur_index < list->length; cur_index++)
+        -:  348:    {
+       29:  349:        if (strcmp (cur_elem->key, key) == 0)
+        -:  350:        {
+        2:  351:            *index = cur_index;
+        -:  352:
+        2:  353:            return LIST_OK;
+        -:  354:        }
+        -:  355:
+       27:  356:        cur_elem = cur_elem->next;
+        -:  357:    }
+        -:  358:
+       17:  359:    *index = -1;
+        -:  360:
+       17:  361:    return HT_OK;
+        -:  362:}
+        -:  363:
+        -:  364://==============================================================================
+        -:  365://------------------------------------------------------------------------------
+        -:  366://-------------------------------------HT---------------------------------------
+        -:  367://------------------------------------------------------------------------------
+        -:  368://==============================================================================
+        -:  369:
+      128:  370:static int hashtable_is_ok (hashtable_t hashtable) 
+        -:  371:{
+      128:  372:    if (hashtable == NULL)
+        -:  373:    {
+       92:  374:    	return HT_NULL;
+        -:  375:    }
+        -:  376:
+       36:  377:    register unsigned int i = 0;
+     3672:  378:    for (i = 0; i < hashtable->max_hashvalue; i++)
+        -:  379:    {
+     3636:  380:        if (list_is_ok (&hashtable->buckets[i]) != LIST_OK)
+        -:  381:        {
+    #####:  382:            return HT_ERR;
+        -:  383:        }
+        -:  384:    }
+        -:  385:
+       36:  386:    return HT_OK;
+        -:  387:}
+        -:  388:
+       16:  389:hashtable_t hashtable_construct (unsigned int max_hashvalue, int* error_value) 
+        -:  390:{
+       16:  391:	if (error_value == NULL)
+        -:  392:	{
+        1:  393:		return hashtable_error_catch (HT_NULL), NULL;
+        -:  394:	}
+        -:  395:
+       15:  396:	if (max_hashvalue >= MAX_HASHVALUE)
+        -:  397:	{
+        1:  398:		*error_value = HT_WR_HV_RANGE;
+        1:  399:		return hashtable_error_catch (HT_WR_HV_RANGE), NULL;
+        -:  400:	}
+        -:  401:
+       14:  402:	hashtable_t hashtable = (hashtable_t) my_calloc (1, sizeof (hashtable_t));
+       14:  403:	if (hashtable == NULL)
+        -:  404:	{
+        2:  405:        free (hashtable);
+        2:  406:		*error_value = HT_NULL;
+        2:  407:		return hashtable_error_catch (HT_NULL), NULL;
+        -:  408:	}
+        -:  409:
+       12:  410:	hashtable->buckets = (list_t*) my_calloc (max_hashvalue + 1, sizeof (list_t));
+       12:  411:	if (hashtable->buckets == NULL)
+        -:  412:	{
+        2:  413:        free (hashtable);
+        2:  414:        free (hashtable->buckets);
+        2:  415:		*error_value = HT_NULL;
+        2:  416:		return hashtable_error_catch (HT_NULL), NULL;
+        -:  417:	}
+        -:  418:
+       10:  419:	register unsigned int cur_bucket = 0, res_list_construct = 0;
+      386:  420:	for (cur_bucket = 0; cur_bucket <= max_hashvalue; cur_bucket++)
+        -:  421:	{
+      383:  422:		res_list_construct = list_construct (&hashtable->buckets[cur_bucket]);
+        -:  423:
+      383:  424:		if (res_list_construct != LIST_OK)
+        -:  425:		{
+        7:  426:            register unsigned int j = 0;
+       87:  427:            for (j = 0; j <= cur_bucket; j++)
+        -:  428:            {
+       80:  429:                list_destruct (&hashtable->buckets[j]);
+        -:  430:            }
+        -:  431:
+        7:  432:            free (hashtable->buckets);
+        7:  433:            free (hashtable);
+        7:  434:			*error_value = res_list_construct;
+        7:  435:			return hashtable_error_catch (res_list_construct), NULL;
+        -:  436:		}
+        -:  437:	}
+        -:  438:
+        3:  439:	hashtable->max_hashvalue = max_hashvalue + 1;
+        -:  440:
+        3:  441:	*error_value = 0;
+        -:  442:
+        3:  443:	return hashtable;
+        -:  444:}
+        -:  445:
+       14:  446:int hashtable_clear (hashtable_t hashtable) 
+        -:  447:{
+       14:  448:    if (hashtable_error_catch (hashtable_is_ok (hashtable)) != HT_OK)
+        -:  449:    {
+       11:  450:        return HT_ERR;
+        -:  451:    }
+        -:  452:
+        3:  453:    register unsigned int cur_bucket = 0;
+      306:  454:    for (cur_bucket = 0; cur_bucket < hashtable->max_hashvalue; cur_bucket++)
+        -:  455:    {
+      303:  456:        if (hashtable_error_catch (list_construct (&hashtable->buckets[cur_bucket])) != HT_OK)
+        -:  457:        {
+    #####:  458:            return HT_ERR;
+        -:  459:        }
+        -:  460:    }
+        -:  461:
+        3:  462:    return HT_OK;
+        -:  463:}
+        -:  464:
+       13:  465:int hashtable_destruct (hashtable_t hashtable) 
+        -:  466:{
+       13:  467:    if (hashtable_error_catch (hashtable_is_ok (hashtable)) != HT_OK)
+        -:  468:    {
+       10:  469:        return HT_ERR;
+        -:  470:    }
+        -:  471:
+        3:  472:    register unsigned int cur_bucket = 0;
+      306:  473:    for (cur_bucket = 0; cur_bucket < hashtable->max_hashvalue; cur_bucket++)
+        -:  474:    {        
+      303:  475:        list_destruct (&hashtable->buckets[cur_bucket]);
+        -:  476:    }
+        -:  477:
+        3:  478:    free (hashtable->buckets);
+        3:  479:    hashtable->max_hashvalue = 0;
+        -:  480:
+        3:  481:    return HT_OK;
+        -:  482:}
+        -:  483:
+       47:  484:int hashtable_add (hashtable_t hashtable,  char key[], char blob[], int blob_size) 
+        -:  485:{    
+       47:  486:    if (hashtable_error_catch (hashtable_is_ok (hashtable)) != HT_OK)
+        -:  487:    {
+       30:  488:        return HT_ERR;
+        -:  489:    }
+        -:  490:
+       17:  491:    if (key == NULL)
+        -:  492:    {
+        1:  493:        return hashtable_error_catch (ELEM_NULL_KEY);
+        -:  494:    }
+        -:  495:
+       16:  496:    if (strlen (key) >= MAX_KEY_LEN)
+        -:  497:    {
+        1:  498:        return hashtable_error_catch (ELEM_WR_RANGE);
+        -:  499:    }
+        -:  500:
+       15:  501:    if (blob == NULL)
+        -:  502:    {
+        1:  503:        return hashtable_error_catch (ELEM_NULL_BLOB);
+        -:  504:    }
+        -:  505:
+       14:  506:    if (blob_size < 1 ||
+        -:  507:        blob_size > MAX_BLOB_LEN)
+        -:  508:    {
+        2:  509:        return HT_ERR;
+        -:  510:    }
+        -:  511:
+       12:  512:    int hashvalue = 0;
+       12:  513:    int index = -1;
+        -:  514:
+       12:  515:    hash (key, &hashvalue);
+        -:  516:
+       12:  517:    hashvalue %= (hashtable->max_hashvalue);
+        -:  518:
+       12:  519:    if (hashtable_error_catch (list_find_key (&hashtable->buckets[hashvalue], key, &index)) != HT_OK)
+        -:  520:    {
+    #####:  521:        return HT_ERR;
+        -:  522:    }
+        -:  523:
+       12:  524:    if (index == -1)
+        -:  525:    {
+        -:  526:        elem_t* new_elem;
+        -:  527:
+       12:  528:        if (hashtable_error_catch (elem_construct (&new_elem, key, blob, blob_size)) != HT_OK)
+        -:  529:        {
+    #####:  530:            return HT_ERR;
+        -:  531:        }
+        -:  532:
+       12:  533:        if (hashtable_error_catch (list_add_elem (&hashtable->buckets[hashvalue], new_elem, 0)) != HT_OK)
+        -:  534:         {
+    #####:  535:            return HT_ERR;
+        -:  536:        }
+        -:  537:    }
+        -:  538:
+       12:  539:    return HT_OK;
+        -:  540:}
+        -:  541:
+       49:  542:int hashtable_del (hashtable_t hashtable, char key[]) 
+        -:  543:{
+       49:  544:    if (hashtable_error_catch (hashtable_is_ok (hashtable)) != HT_OK)
+        -:  545:    {
+       40:  546:        return HT_ERR;
+        -:  547:    }
+        -:  548:
+        9:  549:    if (key == NULL)
+        -:  550:    {
+        1:  551:        return hashtable_error_catch (ELEM_NULL_KEY);
+        -:  552:    }
+        -:  553:
+        8:  554:    if (strlen (key) >= MAX_KEY_LEN)
+        -:  555:    {
+        1:  556:        return hashtable_error_catch (ELEM_WR_RANGE);
+        -:  557:    }
+        -:  558:
+        7:  559:    int hashvalue = 0;
+        7:  560:    int index = -1;
+        -:  561:
+        7:  562:    hash (key, &hashvalue);
+        -:  563:
+        7:  564:    hashvalue %= (hashtable->max_hashvalue);
+        -:  565:
+        7:  566:    if (hashtable_error_catch (list_find_key (&hashtable->buckets[hashvalue], key, &index)) != HT_OK)
+        -:  567:    {
+    #####:  568:        return HT_ERR;
+        -:  569:    }
+        -:  570:
+        7:  571:    if (index == -1)
+        -:  572:    {
+        5:  573:    	return hashtable_error_catch (HT_WR_INPUT);
+        -:  574:    }
+        -:  575:
+        2:  576:    if (hashtable_error_catch (list_delete_elem (&hashtable->buckets[hashvalue], index))!= HT_OK)
+        -:  577:    {
+    #####:  578:        return HT_ERR;
+        -:  579:    }
+        -:  580:
+        2:  581:    return HT_OK;
+        -:  582:}
+        -:  583:
+     1261:  584:static int hashtable_error_catch (int error)
+        -:  585:{
+     1261:  586:    switch (error)
+        -:  587:    {
+        -:  588:        case ELEM_NULL:
+        7:  589:            printf ("ELEM_NULL. The element wasn't initialised correctly!\n ");
+        7:  590:            return HT_ERR;
+        -:  591:
+        -:  592:        case ELEM_NULL_KEY:
+        2:  593:            printf ("ELEM_NULL_KEY. Key of element is NULL.. strange..\n ");
+        2:  594:            return HT_ERR;
+        -:  595:
+        -:  596:        case ELEM_WR_RANGE:
+        2:  597:            printf ("ELEM_WR_RANGE. Wrong key size.\n ");
+        2:  598:            return HT_ERR;
+        -:  599:
+        -:  600:        case LIST_NULL:
+    #####:  601:            printf ("LIST_NULL. The list wasn't initialised correctly!\n ");
+    #####:  602:            return HT_ERR;
+        -:  603:
+        -:  604:        case HT_NULL:
+       96:  605:            printf ("HT_NULL. The hashtable wasn't initialised correctly!\n ");
+       96:  606:            return HT_ERR;
+        -:  607:
+        -:  608:        case HT_WR_HV_RANGE:
+        1:  609:            printf ("HT_WR_HV_RANGE. Wrong hashvalue range.\n ");
+        1:  610:            return HT_ERR;
+        -:  611:
+        -:  612:        case HT_WR_INPUT:
+        5:  613:            printf ("HT_WR_INPUT. Something is bad inside the input file..\n ");
+        5:  614:            return HT_ERR;
+        -:  615:
+        -:  616:        case IT_NULL:
+        4:  617:        	printf ("IT_NULL. Something is wrong with the iterator.\n ");
+        4:  618:        	return HT_ERR;
+        -:  619:
+        -:  620:        case HT_ERR:
+        7:  621:            printf ("HT_ERR. \n");
+        7:  622:            return HT_ERR;
+        -:  623:
+        -:  624:        default:
+     1137:  625:            return HT_OK;
+        -:  626:    }
+        -:  627:
+        -:  628:    return HT_ERR;
+        -:  629:}
+        -:  630:
+        -:  631://==============================================================================
+        -:  632://------------------------------------------------------------------------------
+        -:  633://----------------------------------ITERATOR------------------------------------
+        -:  634://------------------------------------------------------------------------------
+        -:  635://==============================================================================
+        -:  636:
+       10:  637:int iterator_is_ok (ht_iterator_t iterator)
+        -:  638:{
+       10:  639:	if (iterator == NULL ||
+        6:  640:		iterator->cur_bucket > iterator->hashtable->max_hashvalue ||
+        -:  641:		iterator->cur_bucket < 0)
+        -:  642:	{
+        4:  643:		return IT_NULL;
+        -:  644:	}
+        -:  645:
+        6:  646:	return IT_OK;
+        -:  647:}
+        -:  648:
+        5:  649:ht_iterator_t iterator_construct (hashtable_t hashtable, int* error_value)
+        -:  650:{
+        5:  651:	if (hashtable_is_ok (hashtable) != HT_OK)
+        -:  652:	{
+        1:  653:		*error_value = HT_ERR;
+        1:  654:		return NULL;
+        -:  655:	}
+        -:  656:
+        4:  657:	if (error_value == NULL)
+        -:  658:	{
+        1:  659:		return NULL;
+        -:  660:	}
+        -:  661:
+        3:  662:	ht_iterator_t iterator = (ht_iterator_t) my_calloc (1, sizeof (ht_iterator_t));
+        3:  663:	if (iterator == NULL)
+        -:  664:	{
+        1:  665:        free (iterator);
+        1:  666:		*error_value = hashtable_error_catch (IT_NULL);
+        1:  667:		return NULL;
+        -:  668:	}
+        -:  669:
+        2:  670:	iterator->hashtable = hashtable;
+        2:  671:	iterator->cur_bucket = 0;
+        2:  672:	iterator->cur_elem = hashtable->buckets[0].head->next;
+        -:  673:
+        2:  674:	return iterator;
+        -:  675:}
+        -:  676:
+        2:  677:int iterator_destruct (ht_iterator_t iterator)
+        -:  678:{
+        2:  679:    if (iterator_is_ok (iterator) != IT_OK)
+        -:  680:    {
+        1:  681:        return HT_ERR;
+        -:  682:    }
+        -:  683:
+        1:  684:    if (iterator->cur_elem != NULL)
+        -:  685:    {
+    #####:  686:        elem_destruct (iterator->cur_elem);
+        -:  687:    }
+        -:  688:
+        1:  689:    iterator->cur_elem = NULL;
+        -:  690:
+        1:  691:    iterator->cur_bucket = -1;
+        -:  692:
+        1:  693:    free (iterator);
+        -:  694:
+        1:  695:    return IT_OK;
+        -:  696:}
+        -:  697:
+        5:  698:static elem_t* ht_iterate (ht_iterator_t iterator)
+        -:  699:{
+      110:  700:	while(iterator->cur_elem == NULL)
+        -:  701:	{
+      101:  702:		if(iterator->cur_bucket < iterator->hashtable->max_hashvalue - 1)
+        -:  703:		{
+      100:  704:			iterator->cur_bucket++;
+      100:  705:			iterator->cur_elem = iterator->hashtable->buckets[iterator->cur_bucket].head->next;
+        -:  706:		}
+        -:  707:		else
+        1:  708:			return NULL;
+        -:  709:	}
+        -:  710:
+        4:  711:	elem_t* e = iterator->cur_elem;
+        -:  712:
+        4:  713:	if(e != NULL)
+        -:  714:	{
+        4:  715:		iterator->cur_elem = e->next;
+        -:  716:	}
+        -:  717:
+        4:  718:	return e;
+        -:  719:}
+        -:  720:
+        9:  721:int iterator_get (ht_iterator_t iterator, char key[], char blob[], int* blob_size)
+        -:  722:{
+        9:  723:	if (blob_size == NULL)
+        -:  724:	{
+        1:  725:		return IT_NULL;
+        -:  726:	}
+        -:  727:
+        8:  728:	if (hashtable_error_catch (iterator_is_ok (iterator)) != HT_OK)
+        -:  729:    {
+        3:  730:        return HT_ERR;
+        -:  731:    }
+        -:  732:
+        5:  733:	elem_t* cur_elem = ht_iterate (iterator);
+        -:  734:
+        5:  735:    if (cur_elem == NULL) 
+        -:  736:    {
+        1:  737:        return -1;
+        -:  738:    }
+        -:  739:
+        4:  740:	*blob_size = cur_elem->blob_size;
+        -:  741:
+        4:  742:	strcpy (key, cur_elem->key);
+        4:  743:	memmove (blob, cur_elem->blob, *blob_size);
+        -:  744:
+        4:  745:	return IT_OK;
+        -:  746:}
+        -:  747:
+        -:  748://==============================================================================
+        -:  749://------------------------------------------------------------------------------
+        -:  750://-----------------------------------TRICKS-------------------------------------
+        -:  751://------------------------------------------------------------------------------
+        -:  752://==============================================================================
+        -:  753:
+      727:  754:static void* my_calloc (size_t num, size_t size)
+        -:  755:{
+      727:  756:	if (rand() % 100 < UNLUCK) return NULL;
+        -:  757:
+      715:  758:	return calloc (num, size);
+        -:  759:}
+        -:  760:
+        -:  761:#undef DEBUG
+        -:  762:#undef _CHECK_
+        -:  763:#undef KEY_CHECK_
+        -:  764:#undef BLOB_CHECK_
+        -:  765:#undef INDEX_CHECK_
+        -:  766:#undef HTEC
+        -:  767:#undef LIST_CHECK_
+        -:  768:#undef ELEM_CHECK_
+        -:  769:#undef HASHTABLE_CHECK_
+        -:  770:#undef ITERATOR_CHECK_
+        -:  771:#undef OUT
+        -:  772:#undef RETURN

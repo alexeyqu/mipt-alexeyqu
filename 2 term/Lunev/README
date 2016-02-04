@@ -1,0 +1,15 @@
+Study projects (Denis Lunev) at MIPT.
+
+Alexey Kulikov, gr. 376, DCAM MIPT
+
+Featuring:
+These 5 programs are some kind of sketches on Linux IPC, they copy a file (a relatively large one) using several different tricks like SVIPC, Unix signals, FIFOs etc.
+--fifo
+--msgqueue
+--select
+--shmem
+--signals
+
+--hashtable 
+--newton
+--newton.net
