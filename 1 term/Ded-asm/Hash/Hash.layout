@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="Elem_functions.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="647" topLine="15" />
+	</File>
+	<File name="HF_old.cpp" open="1" top="0" tabpos="8">
+		<Cursor position="371" topLine="0" />
+	</File>
+	<File name="Hash.h" open="1" top="0" tabpos="6">
+		<Cursor position="8401" topLine="272" />
+	</File>
+	<File name="Hash_functions.cpp" open="1" top="1" tabpos="7">
+		<Cursor position="381" topLine="6" />
+	</File>
+	<File name="Hash_main.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="1864" topLine="48" />
+	</File>
+	<File name="Hashtable_functions.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="7127" topLine="263" />
+	</File>
+	<File name="List_functions.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="483" topLine="5" />
+	</File>
+	<File name="Misc.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="81" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

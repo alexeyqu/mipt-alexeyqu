@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1388095235 source:/home/aq/MIPT_Prog/Tree/Tree_main.cpp
+	"Tree.h"
+
+1388096007 /home/aq/MIPT_Prog/Tree/Tree.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+
+1388095018 source:/home/aq/MIPT_Prog/Tree/Tree_functions.cpp
+	"Tree.h"
+
+1388095029 source:/home/aq/MIPT_Prog/Tree/Node_functions.cpp
+	"Tree.h"
+
+1388095045 source:/home/aq/MIPT_Prog/Tree/Read_functions.cpp
+	"Tree.h"
+
+1390851909 source:/home/aq/MIPT_Prog/Tree/Print_functions.cpp
+	"Tree.h"
+
+1390900627 source:q:\dropbox\mipt\mipt_prog\c\tree\print_functions.cpp
+	"Tree.h"
+
+1388096007 q:\dropbox\mipt\mipt_prog\c\tree\tree.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+
+1388095045 source:q:\dropbox\mipt\mipt_prog\c\tree\read_functions.cpp
+	"Tree.h"
+
+1388095018 source:q:\dropbox\mipt\mipt_prog\c\tree\tree_functions.cpp
+	"Tree.h"
+
+1388095235 source:q:\dropbox\mipt\mipt_prog\c\tree\tree_main.cpp
+	"Tree.h"
+
+1388095029 source:q:\dropbox\mipt\mipt_prog\c\tree\node_functions.cpp
+	"Tree.h"
+

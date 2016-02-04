@@ -1,0 +1,119 @@
+\hypertarget{Square__Equations_8cpp}{\section{\-Square\-\_\-\-Equations.\-cpp \-File \-Reference}
+\label{Square__Equations_8cpp}\index{\-Square\-\_\-\-Equations.\-cpp@{\-Square\-\_\-\-Equations.\-cpp}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\*
+{\ttfamily \#include $<$math.\-h$>$}\*
+{\ttfamily \#include $<$float.\-h$>$}\*
+\subsection*{\-Defines}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Square__Equations_8cpp_a49606be7356624568932ec81c0d429f4}{\#define {\bfseries \-D\-B\-G}~printf (\char`\"{}\# \char`\"{}),}\label{Square__Equations_8cpp_a49606be7356624568932ec81c0d429f4}
+
+\item 
+\#define {\bfseries \-A\-S\-S\-E\-R\-T}(cond)
+\end{DoxyCompactItemize}
+\subsection*{\-Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Square__Equations_8cpp_ab2dd9b24e0e487efdd1cd1f40dd3a023}{\-Solve\-Square} (double a, double b, double c, double $\ast$x1, double $\ast$x2)
+\item 
+\hypertarget{Square__Equations_8cpp_a064da5d066549d63a20d893fa2a1cd11}{int {\bfseries is\-\_\-zero} (double x)}\label{Square__Equations_8cpp_a064da5d066549d63a20d893fa2a1cd11}
+
+\item 
+\hypertarget{Square__Equations_8cpp_a87b4ee641c7044b7c25df378cb284b58}{int {\bfseries above\-\_\-zero} (double x)}\label{Square__Equations_8cpp_a87b4ee641c7044b7c25df378cb284b58}
+
+\item 
+\hypertarget{Square__Equations_8cpp_aabf436c2350ae76d11e30d2dc16f72df}{int {\bfseries below\-\_\-zero} (double x)}\label{Square__Equations_8cpp_aabf436c2350ae76d11e30d2dc16f72df}
+
+\item 
+int \hyperlink{Square__Equations_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{\-Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Square__Equations_8cpp_a2e0b2e585027ea14c09d3b4dcce45fd3}{const int \hyperlink{Square__Equations_8cpp_a2e0b2e585027ea14c09d3b4dcce45fd3}{\-S\-S\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-E\-Q\-U\-A\-T\-I\-O\-N} = -\/1}\label{Square__Equations_8cpp_a2e0b2e585027ea14c09d3b4dcce45fd3}
+
+\begin{DoxyCompactList}\small\item\em \-Value returned by \-Solve\-Square function if number of roots is infinite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Detailed \-Description}
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ 
+
+\subsection{\-Define \-Documentation}
+\hypertarget{Square__Equations_8cpp_a0966b817b229d48e5ffc7feab19a0be6}{\index{\-Square\-\_\-\-Equations.\-cpp@{\-Square\-\_\-\-Equations.\-cpp}!\-A\-S\-S\-E\-R\-T@{\-A\-S\-S\-E\-R\-T}}
+\index{\-A\-S\-S\-E\-R\-T@{\-A\-S\-S\-E\-R\-T}!Square_Equations.cpp@{\-Square\-\_\-\-Equations.\-cpp}}
+\subsubsection[{\-A\-S\-S\-E\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-A\-S\-S\-E\-R\-T(
+\begin{DoxyParamCaption}
+\item[{}]{cond}
+\end{DoxyParamCaption}
+)}}\label{Square__Equations_8cpp_a0966b817b229d48e5ffc7feab19a0be6}
+{\bfseries \-Value\-:}
+\begin{DoxyCode}
+if (!cond)                                                                     
+       \
+    {                                                                          
+           \
+        printf ("Critical failure in assertion '%s'! \nfile %s, line %d \n"    
+           \
+                "Now keep calm and EXTERMINATE! EXTERMINATE! EXTERMINATE!!!\n" 
+           \
+                , #cond, __FILE__, __LINE__);                                  
+               \
+        abort();                                                               
+               \
+    }
+\end{DoxyCode}
+
+
+\subsection{\-Function \-Documentation}
+\hypertarget{Square__Equations_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{\-Square\-\_\-\-Equations.\-cpp@{\-Square\-\_\-\-Equations.\-cpp}!main@{main}}
+\index{main@{main}!Square_Equations.cpp@{\-Square\-\_\-\-Equations.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf main} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Square__Equations_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ main -\/ gets coefficients, checks input, prints answers.
+
+\begin{DoxyReturn}{\-Returns}
+main\-: solves an equation with factors given. \-Returns 1 in case of error, otherwise returns 0. 
+\end{DoxyReturn}
+$<$ \-Coefficients of an equation
+
+$<$ \-Correct input flags
+
+$<$ \-Roots of an equation
+
+$<$ \-Number of roots \hypertarget{Square__Equations_8cpp_ab2dd9b24e0e487efdd1cd1f40dd3a023}{\index{\-Square\-\_\-\-Equations.\-cpp@{\-Square\-\_\-\-Equations.\-cpp}!\-Solve\-Square@{\-Solve\-Square}}
+\index{\-Solve\-Square@{\-Solve\-Square}!Square_Equations.cpp@{\-Square\-\_\-\-Equations.\-cpp}}
+\subsubsection[{\-Solve\-Square}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Solve\-Square} (
+\begin{DoxyParamCaption}
+\item[{double}]{a, }
+\item[{double}]{b, }
+\item[{double}]{c, }
+\item[{double $\ast$}]{x1, }
+\item[{double $\ast$}]{x2}
+\end{DoxyParamCaption}
+)}}\label{Square__Equations_8cpp_ab2dd9b24e0e487efdd1cd1f40dd3a023}
+$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$ \-Solve\-Square -\/ solves a quadratic or linear equation specified by its coefficients.
+
+
+\begin{DoxyParams}[1]{\-Parameters}
+ & {\em a} & \-Equation a-\/coefficient \\
+\hline
+ & {\em b} & \-Equation b-\/coefficient \\
+\hline
+ & {\em c} & \-Equation c-\/coefficient \\
+\hline
+\mbox{\tt out}  & {\em x1} & 1st root of equation, if exist (if not, value will be unchanged) \\
+\hline
+\mbox{\tt out}  & {\em x2} & 2nd root of equation, if exist (if not, value will be unchanged)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+\-Number of roots or zero if none, -\/1 if infinite number of roots or equation is invalid
+\end{DoxyReturn}
+\begin{DoxyNote}{\-Note}
+\-Calculation precision is considered to be \-D\-B\-L\-\_\-\-E\-P\-S\-I\-L\-O\-N. 
+\end{DoxyNote}

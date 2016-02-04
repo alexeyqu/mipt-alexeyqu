@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1387711242 source:/home/aq/MIPT_Prog/Recursive descent parser/Get_G0.cpp
+	"RDP.h"
+
+1390903988 /home/aq/MIPT_Prog/Recursive descent parser/RDP.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1387712821 source:/home/aq/MIPT_Prog/Recursive descent parser/RDP_main.cpp
+	"RDP.h"
+
+1387711240 source:/home/aq/MIPT_Prog/Recursive descent parser/Get_G1.cpp
+	"RDP.h"
+
+1387711237 source:/home/aq/MIPT_Prog/Recursive descent parser/Get_G2.cpp
+	"RDP.h"
+
+1387711234 source:/home/aq/MIPT_Prog/Recursive descent parser/Get_G3.cpp
+	"RDP.h"
+
+1387711954 source:/home/aq/MIPT_Prog/Recursive descent parser/Get_G4.cpp
+	"RDP.h"
+
+1387711283 source:/home/aq/MIPT_Prog/Recursive descent parser/Misc.cpp
+	"RDP.h"
+

@@ -1,0 +1,57 @@
+\hypertarget{Hash__main_8cpp}{\section{Hash\-\_\-main.\-cpp File Reference}
+\label{Hash__main_8cpp}\index{Hash\-\_\-main.\-cpp@{Hash\-\_\-main.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}Hash.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries T\-R\-Y\-\_\-\-H\-A\-S\-H\-\_\-}(num)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Hash__main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Hash__main_8cpp_aa3ddbba5e6094ca79ec9dd7427516c7c}{\index{Hash\-\_\-main.\-cpp@{Hash\-\_\-main.\-cpp}!T\-R\-Y\-\_\-\-H\-A\-S\-H\-\_\-@{T\-R\-Y\-\_\-\-H\-A\-S\-H\-\_\-}}
+\index{T\-R\-Y\-\_\-\-H\-A\-S\-H\-\_\-@{T\-R\-Y\-\_\-\-H\-A\-S\-H\-\_\-}!Hash_main.cpp@{Hash\-\_\-main.\-cpp}}
+\subsubsection[{T\-R\-Y\-\_\-\-H\-A\-S\-H\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-Y\-\_\-\-H\-A\-S\-H\-\_\-(
+\begin{DoxyParamCaption}
+\item[{}]{num}
+\end{DoxyParamCaption}
+)}}\label{Hash__main_8cpp_aa3ddbba5e6094ca79ec9dd7427516c7c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{\(\backslash\)
+        printf (\textcolor{stringliteral}{"Processing #%d hash function..\(\backslash\)n"}, num);\(\backslash\)
+        output = fopen (\textcolor{stringliteral}{"output-"}#num\textcolor{stringliteral}{".xls"}, \textcolor{stringliteral}{"w"});\(\backslash\)
+        ASSERT (output);\(\backslash\)
+            HTEC (Hashtable\_Construct (&\hyperlink{structhashtable}{hashtable}, max\_hashvalue));\(\backslash\)
+        t\_start = clock();\(\backslash\)
+            HTEC (\hyperlink{group__hash_ga1ae85ee59f675e249267850f117bb62e}{Hashtable\_Fill} (&\hyperlink{structhashtable}{hashtable}, input, hash\_##num));\(\backslash\)
+        t\_finish = clock();\(\backslash\)
+        printf (\textcolor{stringliteral}{"Time elapsed: %lg\(\backslash\)n\(\backslash\)n"}, (\textcolor{keywordtype}{double}) ((\textcolor{keywordtype}{double}) (t\_finish) - (\textcolor{keywordtype}{double}) t\_start)/CLOCKS\_PER\_SEC);
+      \(\backslash\)
+            HTEC (\hyperlink{Hash_8h_a6acc27e9c8b926573552faeee38e07ff}{Hashtable\_Print} (&\hyperlink{structhashtable}{hashtable}, output));\(\backslash\)
+            HTEC (Hashtable\_Destruct (&\hyperlink{structhashtable}{hashtable}));\(\backslash\)
+        fclose (output);\(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{Hash__main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{Hash\-\_\-main.\-cpp@{Hash\-\_\-main.\-cpp}!main@{main}}
+\index{main@{main}!Hash_main.cpp@{Hash\-\_\-main.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Hash__main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+$<$ For timing hash functions 

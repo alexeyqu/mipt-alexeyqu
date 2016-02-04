@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1380096649 source:/home/aq/MIPT_Prog/Square_Equations/main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<float.h>
+
+1379274138 source:/home/aq/MIPT_Prog/Square_Equations/SqEq.c
+	<stdio.h>
+	<math.h>
+
+1380970193 source:/home/aq/MIPT_Prog/Square_Equations/Square_Equations.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<float.h>
+
+1382355004 source:/home/aq/MIPT_Prog/Square_Equations/Square_Equations.cpp
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<float.h>
+
+1382428963 source:/home/aq/Dropbox/MIPT/MIPT_Prog/C/Square_Equations/Square_Equations.cpp
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<float.h>
+

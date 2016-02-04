@@ -1,0 +1,172 @@
+\hypertarget{Tree_8h}{\section{Tree.\-h File Reference}
+\label{Tree_8h}\index{Tree.\-h@{Tree.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtree__t}{tree\-\_\-t}
+\item 
+struct \hyperlink{structroot__t}{root\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Tree_8h_ad72dbcf6d0153db1b8d8a58001feed83}{\#define {\bfseries D\-E\-B\-U\-G}~1}\label{Tree_8h_ad72dbcf6d0153db1b8d8a58001feed83}
+
+\item 
+\hypertarget{Tree_8h_aec78e7a9e90a406a56f859ee456e8eae}{\#define {\bfseries O\-U\-T}}\label{Tree_8h_aec78e7a9e90a406a56f859ee456e8eae}
+
+\item 
+\#define {\bfseries A\-S\-S\-E\-R\-T}(cond)
+\item 
+\hypertarget{Tree_8h_ab9a38d9d91a6b52a6fa1c3bffc3e65c0}{\#define {\bfseries N\-O\-D\-E\-\_\-\-C\-H\-E\-C\-K}(node)~T\-E\-C (Node\-\_\-\-Is\-\_\-\-O\-K (node, N\-U\-L\-L), node);}\label{Tree_8h_ab9a38d9d91a6b52a6fa1c3bffc3e65c0}
+
+\item 
+\hypertarget{Tree_8h_aa82e685d66172b4f8b642995d09b8aed}{\#define {\bfseries T\-R\-E\-E\-\_\-\-C\-H\-E\-C\-K}(tree)~T\-E\-C (Tree\-\_\-\-Is\-\_\-\-O\-K (tree), tree);}\label{Tree_8h_aa82e685d66172b4f8b642995d09b8aed}
+
+\item 
+\hypertarget{Tree_8h_a90c0b8ac5b72d565c6907cfaa121424a}{\#define {\bfseries T\-E\-C}(func, object)~if (\hyperlink{group__tree_gadf8f965550be1db1339b97be5182b102}{Tree\-\_\-\-Error\-\_\-\-Handler} (func, \char`\"{}\char`\"{}, object) != T\-R\-E\-E\-\_\-\-O\-K) return T\-R\-E\-E\-\_\-\-E\-R\-R;}\label{Tree_8h_a90c0b8ac5b72d565c6907cfaa121424a}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Tree_8h_a1f05525cbea211a8dd295b0e92a3b4d1}{typedef struct \hyperlink{structtree__t}{tree\-\_\-t} {\bfseries tree\-\_\-t}}\label{Tree_8h_a1f05525cbea211a8dd295b0e92a3b4d1}
+
+\item 
+\hypertarget{Tree_8h_ae2968799fed23ae557f051e6f407372e}{typedef struct \hyperlink{structroot__t}{root\-\_\-t} {\bfseries root\-\_\-t}}\label{Tree_8h_ae2968799fed23ae557f051e6f407372e}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries N\-O\-D\-E\-\_\-\-E\-R\-R} \{ \\*
+{\bfseries N\-O\-D\-E\-\_\-\-E\-R\-R} = -\/1000, 
+{\bfseries N\-O\-D\-E\-\_\-\-O\-K} = 1000, 
+{\bfseries N\-O\-D\-E\-\_\-\-N\-U\-L\-L} = 1001, 
+{\bfseries N\-O\-D\-E\-\_\-\-W\-R\-\_\-\-S\-I\-Z\-E} = 1002, 
+\\*
+{\bfseries N\-O\-D\-E\-\_\-\-W\-R\-\_\-\-C\-N\-C\-T\-S} = 1003
+ \}
+\item 
+enum {\bfseries T\-R\-E\-E\-\_\-\-E\-R\-R} \{ {\bfseries T\-R\-E\-E\-\_\-\-E\-R\-R} = -\/2000, 
+{\bfseries T\-R\-E\-E\-\_\-\-O\-K} = 2000, 
+{\bfseries T\-R\-E\-E\-\_\-\-N\-U\-L\-L} = 2001, 
+{\bfseries T\-R\-E\-E\-\_\-\-W\-R\-\_\-\-S\-I\-Z\-E} = 2002
+ \}
+\item 
+enum {\bfseries N\-O\-D\-E\-\_\-\-T\-Y\-P\-E} \{ \\*
+{\bfseries N\-O\-\_\-\-T\-Y\-P\-E} = 0, 
+{\bfseries T\-\_\-\-N\-U\-M} = 1, 
+{\bfseries T\-\_\-\-O\-P} = 2, 
+{\bfseries T\-\_\-\-L\-\_\-\-B\-R} = 3, 
+\\*
+{\bfseries T\-\_\-\-R\-\_\-\-B\-R} = 4
+ \}
+\item 
+enum {\bfseries N\-O\-D\-E\-\_\-\-I\-N\-F\-O} \{ \\*
+{\bfseries A\-D\-D} = '+', 
+{\bfseries S\-U\-B} = '-\/', 
+{\bfseries M\-U\-L} = '$\ast$', 
+{\bfseries D\-I\-V} = '/', 
+\\*
+{\bfseries L\-\_\-\-B\-R} = '(', 
+{\bfseries R\-\_\-\-B\-R} = ')'
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Tree_8h_aa33935043003c8bcbe3c30759cb8fdd5}{int {\bfseries Node\-\_\-\-Construct} (\hyperlink{structtree__t}{tree\-\_\-t} $\ast$$\ast$new\-\_\-node)}\label{Tree_8h_aa33935043003c8bcbe3c30759cb8fdd5}
+
+\item 
+\hypertarget{Tree_8h_a66e578406943817cc5796bd57a543946}{int {\bfseries Node\-\_\-\-Destruct} (\hyperlink{structtree__t}{tree\-\_\-t} $\ast$node)}\label{Tree_8h_a66e578406943817cc5796bd57a543946}
+
+\item 
+\hypertarget{Tree_8h_a9a333f18eb203b8a2bb302a2335e61c9}{int {\bfseries Node\-\_\-\-Is\-\_\-\-O\-K} (\hyperlink{structtree__t}{tree\-\_\-t} $\ast$node, int $\ast$size)}\label{Tree_8h_a9a333f18eb203b8a2bb302a2335e61c9}
+
+\item 
+\hypertarget{Tree_8h_a97fce5db05dd22abaadb85ee5de068be}{void {\bfseries Node\-\_\-\-Dump} (F\-I\-L\-E $\ast$outstream, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node, unsigned int depth)}\label{Tree_8h_a97fce5db05dd22abaadb85ee5de068be}
+
+\item 
+\hypertarget{Tree_8h_a0741f762e44ef08def2696181d67bd3a}{int {\bfseries Tree\-\_\-\-Construct} (\hyperlink{structroot__t}{root\-\_\-t} $\ast$$\ast$new\-\_\-tree)}\label{Tree_8h_a0741f762e44ef08def2696181d67bd3a}
+
+\item 
+\hypertarget{Tree_8h_a0591a646026dbdd872881baa5d0c8de0}{int {\bfseries Tree\-\_\-\-Destruct} (\hyperlink{structroot__t}{root\-\_\-t} $\ast$tree)}\label{Tree_8h_a0591a646026dbdd872881baa5d0c8de0}
+
+\item 
+\hypertarget{Tree_8h_a4c5abc27d169759847223111f91343eb}{int {\bfseries Tree\-\_\-\-Is\-\_\-\-O\-K} (\hyperlink{structroot__t}{root\-\_\-t} $\ast$tree)}\label{Tree_8h_a4c5abc27d169759847223111f91343eb}
+
+\item 
+\hypertarget{Tree_8h_ab9a6f87cf55bdd001a10405934b24556}{void {\bfseries Tree\-\_\-\-Dump} (F\-I\-L\-E $\ast$outstream, \hyperlink{structroot__t}{root\-\_\-t} $\ast$tree)}\label{Tree_8h_ab9a6f87cf55bdd001a10405934b24556}
+
+\item 
+int \hyperlink{group__node_ga728fb32544bba7f36fcd5b387f83c56c}{Node\-\_\-\-Add\-\_\-\-Left} (\hyperlink{structroot__t}{root\-\_\-t} $\ast$tree, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$child)
+\begin{DoxyCompactList}\small\item\em Adds node as left child. \end{DoxyCompactList}\item 
+int \hyperlink{group__node_ga6c8866b52402756aa833e64408ee261e}{Node\-\_\-\-Add\-\_\-\-Right} (\hyperlink{structroot__t}{root\-\_\-t} $\ast$tree, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$child)
+\begin{DoxyCompactList}\small\item\em Adds node as right child. \end{DoxyCompactList}\item 
+int \hyperlink{group__node_gada42bad6242102ade526ba049ac625d4}{Node\-\_\-\-Delete} (\hyperlink{structroot__t}{root\-\_\-t} $\ast$tree, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Deletes subtree from tree. \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_gac5503c52682012192527d698eb6d7de4}{Tree\-\_\-\-Update\-\_\-\-Sizes} (\hyperlink{structroot__t}{root\-\_\-t} $\ast$tree, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node, int d\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Updates info about sizes in nodes of the tree. \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_ga92318dbe92c0db5f435b4ae68d4417c9}{Tree\-\_\-\-Read} (F\-I\-L\-E $\ast$instream, \hyperlink{structroot__t}{root\-\_\-t} $\ast$tree, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Reads a tree from a full-\/bracket expression. \end{DoxyCompactList}\item 
+int \hyperlink{group__node_ga0f399b6c1710ff8e7be6d7b2504ce5df}{Tree\-\_\-\-Get\-\_\-\-Token} (F\-I\-L\-E $\ast$instream, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node, int $\ast$cur\-\_\-type)
+\begin{DoxyCompactList}\small\item\em Gets a token from the input stream. \end{DoxyCompactList}\item 
+int \hyperlink{group__read_ga8431ab97993c83abc0337af35983a697}{Tree\-\_\-\-Scan\-\_\-\-For\-\_\-\-Number} (F\-I\-L\-E $\ast$instream)
+\begin{DoxyCompactList}\small\item\em Looks for a number in the input stream. \end{DoxyCompactList}\item 
+int \hyperlink{group__node_gaa9cf48f86d21d57356c9234fd7be63f7}{Node\-\_\-\-Print} (F\-I\-L\-E $\ast$outstream, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Prints node infixly \-:) \end{DoxyCompactList}\item 
+int \hyperlink{group__node_ga9e040129a8d1bc879a9d80eb073f6d8f}{Node\-\_\-\-Print\-\_\-\-Postfix} (F\-I\-L\-E $\ast$outstream, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Prints node postfixly \-:) \end{DoxyCompactList}\item 
+int \hyperlink{group__node_ga95b3c512aef324f64d52a659683f6c9c}{Node\-\_\-\-Print\-\_\-\-Dot} (F\-I\-L\-E $\ast$outstream, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Prints node dotfixly \-:) \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_ga8152f1bb640d24bc31af5c5311e62591}{Tree\-\_\-\-Print} (F\-I\-L\-E $\ast$outstream, \hyperlink{structroot__t}{root\-\_\-t} $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Prints tree infixly \-:) \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_ga9caac287efe9cb8a6b3153f609510e48}{Tree\-\_\-\-Print\-\_\-\-Postfix} (F\-I\-L\-E $\ast$outstream, \hyperlink{structroot__t}{root\-\_\-t} $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Prints tree postfixly \-:) \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_ga4628406011a00c283a144512151690c3}{Tree\-\_\-\-Print\-\_\-\-Dot} (F\-I\-L\-E $\ast$outstream, \hyperlink{structroot__t}{root\-\_\-t} $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Prints tree dotfixly \-:) \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_gadf8f965550be1db1339b97be5182b102}{Tree\-\_\-\-Error\-\_\-\-Handler} (int err\-\_\-code, const char $\ast$msg,...)
+\begin{DoxyCompactList}\small\item\em Catches errors.. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Tree_8h_a212f2cf1a56967f3d3b71da2f1133251}{const unsigned int \hyperlink{Tree_8h_a212f2cf1a56967f3d3b71da2f1133251}{Poison} = 0x\-D\-E\-A\-D}\label{Tree_8h_a212f2cf1a56967f3d3b71da2f1133251}
+
+\begin{DoxyCompactList}\small\item\em Poison value. \end{DoxyCompactList}\item 
+\hypertarget{Tree_8h_a17296ef7ddb5255c434709ca720817f1}{const unsigned int \hyperlink{Tree_8h_a17296ef7ddb5255c434709ca720817f1}{Set\-\_\-value} = 0x\-A\-D\-D}\label{Tree_8h_a17296ef7ddb5255c434709ca720817f1}
+
+\begin{DoxyCompactList}\small\item\em Start value. \end{DoxyCompactList}\item 
+\hypertarget{Tree_8h_aafb67fb0c208556e3e13062b960fc85a}{F\-I\-L\-E $\ast$ \hyperlink{Tree_8h_aafb67fb0c208556e3e13062b960fc85a}{The\-\_\-\-Log}}\label{Tree_8h_aafb67fb0c208556e3e13062b960fc85a}
+
+\begin{DoxyCompactList}\small\item\em Log file descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Tree_8h_a0966b817b229d48e5ffc7feab19a0be6}{\index{Tree.\-h@{Tree.\-h}!A\-S\-S\-E\-R\-T@{A\-S\-S\-E\-R\-T}}
+\index{A\-S\-S\-E\-R\-T@{A\-S\-S\-E\-R\-T}!Tree.h@{Tree.\-h}}
+\subsubsection[{A\-S\-S\-E\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-S\-S\-E\-R\-T(
+\begin{DoxyParamCaption}
+\item[{}]{cond}
+\end{DoxyParamCaption}
+)}}\label{Tree_8h_a0966b817b229d48e5ffc7feab19a0be6}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (!(cond))\(\backslash\)
+        \{\(\backslash\)
+            fprintf (stdout, \textcolor{stringliteral}{"Oops! Assertion <%s> failed \(\backslash\)non %d line of %s file.\(\backslash\)n"}, \(\backslash\)
+                    #cond, \_\_LINE\_\_, \_\_FILE\_\_);\(\backslash\)
+            exit (1);\(\backslash\)
+        \}
+\end{DoxyCode}

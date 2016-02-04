@@ -1,0 +1,5 @@
+CPU log file.
+AQ 1.13
+
+Assembler started
+Assembler started

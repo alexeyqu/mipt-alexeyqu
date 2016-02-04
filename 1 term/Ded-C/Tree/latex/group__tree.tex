@@ -1,0 +1,199 @@
+\hypertarget{group__tree}{\section{Tree}
+\label{group__tree}\index{Tree@{Tree}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__tree_gac5503c52682012192527d698eb6d7de4}{Tree\-\_\-\-Update\-\_\-\-Sizes} (\hyperlink{structroot__t}{root\-\_\-t} $\ast$tree, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node, int d\-\_\-size)
+\begin{DoxyCompactList}\small\item\em Updates info about sizes in nodes of the tree. \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_ga92318dbe92c0db5f435b4ae68d4417c9}{Tree\-\_\-\-Read} (F\-I\-L\-E $\ast$instream, \hyperlink{structroot__t}{root\-\_\-t} $\ast$tree, \hyperlink{structtree__t}{tree\-\_\-t} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Reads a tree from a full-\/bracket expression. \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_ga8152f1bb640d24bc31af5c5311e62591}{Tree\-\_\-\-Print} (F\-I\-L\-E $\ast$outstream, \hyperlink{structroot__t}{root\-\_\-t} $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Prints tree infixly \-:) \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_ga9caac287efe9cb8a6b3153f609510e48}{Tree\-\_\-\-Print\-\_\-\-Postfix} (F\-I\-L\-E $\ast$outstream, \hyperlink{structroot__t}{root\-\_\-t} $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Prints tree postfixly \-:) \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_ga4628406011a00c283a144512151690c3}{Tree\-\_\-\-Print\-\_\-\-Dot} (F\-I\-L\-E $\ast$outstream, \hyperlink{structroot__t}{root\-\_\-t} $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Prints tree dotfixly \-:) \end{DoxyCompactList}\item 
+int \hyperlink{group__tree_gadf8f965550be1db1339b97be5182b102}{Tree\-\_\-\-Error\-\_\-\-Handler} (int err\-\_\-code, const char $\ast$msg,...)
+\begin{DoxyCompactList}\small\item\em Catches errors.. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__tree_gadf8f965550be1db1339b97be5182b102}{\index{Tree@{Tree}!Tree\-\_\-\-Error\-\_\-\-Handler@{Tree\-\_\-\-Error\-\_\-\-Handler}}
+\index{Tree\-\_\-\-Error\-\_\-\-Handler@{Tree\-\_\-\-Error\-\_\-\-Handler}!Tree@{Tree}}
+\subsubsection[{Tree\-\_\-\-Error\-\_\-\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}int Tree\-\_\-\-Error\-\_\-\-Handler (
+\begin{DoxyParamCaption}
+\item[{int}]{err\-\_\-code, }
+\item[{const char $\ast$}]{msg, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{group__tree_gadf8f965550be1db1339b97be5182b102}
+
+
+Catches errors.. 
+
+
+
+ Tree\-\_\-\-Error\-\_\-\-Handler
+
+
+\begin{DoxyParams}{Parameters}
+{\em err\-\_\-code} & code of error \\
+\hline
+{\em msg} & message to print\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-L\-I\-S\-T} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__tree_ga8152f1bb640d24bc31af5c5311e62591}{\index{Tree@{Tree}!Tree\-\_\-\-Print@{Tree\-\_\-\-Print}}
+\index{Tree\-\_\-\-Print@{Tree\-\_\-\-Print}!Tree@{Tree}}
+\subsubsection[{Tree\-\_\-\-Print}]{\setlength{\rightskip}{0pt plus 5cm}int Tree\-\_\-\-Print (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{outstream, }
+\item[{{\bf root\-\_\-t} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}}\label{group__tree_ga8152f1bb640d24bc31af5c5311e62591}
+
+
+Prints tree infixly \-:) 
+
+
+
+ Tree\-\_\-\-Print
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em outstream} & output file descriptor \\
+\hline
+\mbox{\tt out}  & {\em tree} & pointer to tree\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-L\-I\-S\-T} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__tree_ga4628406011a00c283a144512151690c3}{\index{Tree@{Tree}!Tree\-\_\-\-Print\-\_\-\-Dot@{Tree\-\_\-\-Print\-\_\-\-Dot}}
+\index{Tree\-\_\-\-Print\-\_\-\-Dot@{Tree\-\_\-\-Print\-\_\-\-Dot}!Tree@{Tree}}
+\subsubsection[{Tree\-\_\-\-Print\-\_\-\-Dot}]{\setlength{\rightskip}{0pt plus 5cm}int Tree\-\_\-\-Print\-\_\-\-Dot (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{outstream, }
+\item[{{\bf root\-\_\-t} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}}\label{group__tree_ga4628406011a00c283a144512151690c3}
+
+
+Prints tree dotfixly \-:) 
+
+
+
+ Tree\-\_\-\-Print\-\_\-\-Dot
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em outstream} & output file descriptor \\
+\hline
+\mbox{\tt out}  & {\em tree} & pointer to tree\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-L\-I\-S\-T} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__tree_ga9caac287efe9cb8a6b3153f609510e48}{\index{Tree@{Tree}!Tree\-\_\-\-Print\-\_\-\-Postfix@{Tree\-\_\-\-Print\-\_\-\-Postfix}}
+\index{Tree\-\_\-\-Print\-\_\-\-Postfix@{Tree\-\_\-\-Print\-\_\-\-Postfix}!Tree@{Tree}}
+\subsubsection[{Tree\-\_\-\-Print\-\_\-\-Postfix}]{\setlength{\rightskip}{0pt plus 5cm}int Tree\-\_\-\-Print\-\_\-\-Postfix (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{outstream, }
+\item[{{\bf root\-\_\-t} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}}\label{group__tree_ga9caac287efe9cb8a6b3153f609510e48}
+
+
+Prints tree postfixly \-:) 
+
+
+
+ Tree\-\_\-\-Print\-\_\-\-Postfix
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em outstream} & output file descriptor \\
+\hline
+\mbox{\tt out}  & {\em tree} & pointer to tree\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-L\-I\-S\-T} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__tree_ga92318dbe92c0db5f435b4ae68d4417c9}{\index{Tree@{Tree}!Tree\-\_\-\-Read@{Tree\-\_\-\-Read}}
+\index{Tree\-\_\-\-Read@{Tree\-\_\-\-Read}!Tree@{Tree}}
+\subsubsection[{Tree\-\_\-\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int Tree\-\_\-\-Read (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{instream, }
+\item[{{\bf root\-\_\-t} $\ast$}]{tree, }
+\item[{{\bf tree\-\_\-t} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}}\label{group__tree_ga92318dbe92c0db5f435b4ae68d4417c9}
+
+
+Reads a tree from a full-\/bracket expression. 
+
+
+
+ Tree\-\_\-\-Read
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em instream} & input file descriptor \\
+\hline
+\mbox{\tt out}  & {\em tree} & pointer to tree \\
+\hline
+\mbox{\tt out}  & {\em node} & pointer to node\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-L\-I\-S\-T} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__tree_gac5503c52682012192527d698eb6d7de4}{\index{Tree@{Tree}!Tree\-\_\-\-Update\-\_\-\-Sizes@{Tree\-\_\-\-Update\-\_\-\-Sizes}}
+\index{Tree\-\_\-\-Update\-\_\-\-Sizes@{Tree\-\_\-\-Update\-\_\-\-Sizes}!Tree@{Tree}}
+\subsubsection[{Tree\-\_\-\-Update\-\_\-\-Sizes}]{\setlength{\rightskip}{0pt plus 5cm}int Tree\-\_\-\-Update\-\_\-\-Sizes (
+\begin{DoxyParamCaption}
+\item[{{\bf root\-\_\-t} $\ast$}]{tree, }
+\item[{{\bf tree\-\_\-t} $\ast$}]{node, }
+\item[{int}]{d\-\_\-size}
+\end{DoxyParamCaption}
+)}}\label{group__tree_gac5503c52682012192527d698eb6d7de4}
+
+
+Updates info about sizes in nodes of the tree. 
+
+
+
+ Tree\-\_\-\-Update\-\_\-\-Sizes
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em tree} & pointer to tree \\
+\hline
+\mbox{\tt out}  & {\em node} & pointer to node \\
+\hline
+ & {\em d\-\_\-size} & delta size\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-L\-I\-S\-T} & \\
+\hline
+\end{DoxyRetVals}

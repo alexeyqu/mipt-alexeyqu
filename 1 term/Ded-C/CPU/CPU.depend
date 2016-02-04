@@ -1,0 +1,61 @@
+# depslib dependency file v1.0
+1385044016 source:/home/aq/MIPT_Prog/CPU/CPU_main.cpp
+	"CPU.h"
+
+1385044493 /home/aq/MIPT_Prog/CPU/CPU.h
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<string.h>
+	<ctype.h>
+	<math.h>
+	<stdarg.h>
+	"Stack.h"
+	"Asm.h"
+	"Commands.h"
+
+1385039475 /home/aq/MIPT_Prog/CPU/Stack.h
+
+1385039723 source:/home/aq/MIPT_Prog/CPU/Stack_functions.cpp
+	"CPU.h"
+
+1385044529 source:/home/aq/MIPT_Prog/CPU/CPU_functions.cpp
+	"CPU.h"
+
+1384610675 /home/aq/MIPT_Prog/CPU/Commands.h
+
+1385041685 source:/home/aq/MIPT_Prog/CPU/Asm.cpp
+	"CPU.h"
+
+1385042831 /home/aq/MIPT_Prog/CPU/Asm.h
+
+1401116821 source:/home/aq/MIPT_Prog/C/CPU/Asm.cpp
+	"CPU.h"
+
+1385044493 /home/aq/MIPT_Prog/C/CPU/CPU.h
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<string.h>
+	<ctype.h>
+	<math.h>
+	<stdarg.h>
+	"Stack.h"
+	"Asm.h"
+	"Commands.h"
+
+1385039475 /home/aq/MIPT_Prog/C/CPU/Stack.h
+
+1385042831 /home/aq/MIPT_Prog/C/CPU/Asm.h
+
+1384610675 /home/aq/MIPT_Prog/C/CPU/Commands.h
+
+1385039723 source:/home/aq/MIPT_Prog/C/CPU/Stack_functions.cpp
+	"CPU.h"
+
+1401098469 source:/home/aq/MIPT_Prog/C/CPU/CPU_functions.cpp
+	"CPU.h"
+
+1385044696 source:/home/aq/MIPT_Prog/C/CPU/CPU_main.cpp
+	"CPU.h"
+

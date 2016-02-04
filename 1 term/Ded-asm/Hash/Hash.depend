@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1399913133 source:/home/aq/MIPT_Prog/Asm/Hash/Elem_functions.cpp
+	"Hash.h"
+
+1399912983 /home/aq/MIPT_Prog/Asm/Hash/Hash.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	<stdarg.h>
+
+1399913145 source:/home/aq/MIPT_Prog/Asm/Hash/Hash_functions.cpp
+	"Hash.h"
+
+1399912154 source:/home/aq/MIPT_Prog/Asm/Hash/Hash_main.cpp
+	"Hash.h"
+
+1399913121 source:/home/aq/MIPT_Prog/Asm/Hash/Hashtable_functions.cpp
+	"Hash.h"
+
+1399913048 source:/home/aq/MIPT_Prog/Asm/Hash/List_functions.cpp
+	"Hash.h"
+
+1399909715 source:/home/aq/MIPT_Prog/Asm/Hash/Misc.cpp
+	"Hash.h"
+
+1399912959 source:/home/aq/MIPT_Prog/Asm/Hash/HF_old.cpp
+	"Hash.h"
+

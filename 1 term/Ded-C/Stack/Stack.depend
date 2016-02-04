@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1408577866 source:/home/aq/Dropbox/MIPT/MIPT_Prog/C/Stack/Stack.cpp
+	"Stack.h"
+
+1408578069 /home/aq/Dropbox/MIPT/MIPT_Prog/C/Stack/Stack.h
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<limits.h>
+	<string.h>
+	<time.h>
+	<stdarg.h>
+
+1385038829 source:/home/aq/Dropbox/MIPT/MIPT_Prog/C/Stack/Stack_functions.cpp
+	"Stack.h"
+
+1385038842 source:/home/aq/Dropbox/MIPT/MIPT_Prog/C/Stack/Stack_perverted_functions.cpp
+	"Stack.h"
+
+1385038849 source:/home/aq/Dropbox/MIPT/MIPT_Prog/C/Stack/Testing.cpp
+	"Stack.h"
+

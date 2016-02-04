@@ -1,0 +1,180 @@
+\hypertarget{CPU_8h}{\section{C\-P\-U.\-h File Reference}
+\label{CPU_8h}\index{C\-P\-U.\-h@{C\-P\-U.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Stack.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Asm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Commands.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structCPU}{C\-P\-U}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{CPU_8h_a457e8abac5ca5a0a4fcc3226f96796b0}{\#define {\bfseries C\-P\-U\-\_\-\-P\-R\-E\-C\-O\-N\-D\-\_\-\-C\-H\-E\-C\-K}(cpu)~assert (cpu); assert (C\-P\-U\-\_\-\-Is\-\_\-\-O\-K (cpu));}\label{CPU_8h_a457e8abac5ca5a0a4fcc3226f96796b0}
+
+\item 
+\hypertarget{CPU_8h_a74177b6dc41c850657d5907dd5c82eb7}{\#define {\bfseries C\-P\-U\-\_\-\-P\-O\-S\-T\-C\-O\-N\-D\-\_\-\-C\-H\-E\-C\-K}(cpu)~assert (C\-P\-U\-\_\-\-Is\-\_\-\-O\-K (cpu));}\label{CPU_8h_a74177b6dc41c850657d5907dd5c82eb7}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{CPU_8h_a73051ada9592fbdb251164a362393620}{typedef struct \hyperlink{structCPU}{C\-P\-U} {\bfseries C\-P\-U\-\_\-t}}\label{CPU_8h_a73051ada9592fbdb251164a362393620}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries R\-E\-T\-\_\-\-C\-P\-U} \{ {\bfseries C\-P\-U\-\_\-\-L\-O\-A\-D\-\_\-\-E\-R\-R\-O\-R} = 1, 
+{\bfseries C\-P\-U\-\_\-\-L\-O\-A\-D\-\_\-\-E\-N\-D} = 2
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{CPU_8h_a809f9b19caf166a4c55813f4e6ae46a7}{int {\bfseries C\-P\-U\-\_\-\-Construct} (\hyperlink{structCPU}{C\-P\-U\-\_\-t} $\ast$cpu)}\label{CPU_8h_a809f9b19caf166a4c55813f4e6ae46a7}
+
+\item 
+\hypertarget{CPU_8h_a5cf83bc36937ae7089e4614f455d2e83}{int {\bfseries C\-P\-U\-\_\-\-Destruct} (\hyperlink{structCPU}{C\-P\-U\-\_\-t} $\ast$cpu)}\label{CPU_8h_a5cf83bc36937ae7089e4614f455d2e83}
+
+\item 
+\hypertarget{CPU_8h_a3672f53a426adc2ce4dfea283cea8a59}{int {\bfseries C\-P\-U\-\_\-\-Is\-\_\-\-O\-K} (const \hyperlink{structCPU}{C\-P\-U\-\_\-t} $\ast$cpu)}\label{CPU_8h_a3672f53a426adc2ce4dfea283cea8a59}
+
+\item 
+void \hyperlink{CPU_8h_afcd986a69c8c15521a355a21058834f1}{C\-P\-U\-\_\-\-Dump} (const \hyperlink{structCPU}{C\-P\-U\-\_\-t} $\ast$cpu)
+\begin{DoxyCompactList}\small\item\em it prints dump info for \hyperlink{structCPU}{C\-P\-U} \end{DoxyCompactList}\item 
+int \hyperlink{CPU_8h_a7968a26c9010ca5e8003286ecc06fe8b}{C\-P\-U\-\_\-\-Load\-\_\-\-Data} (\hyperlink{structCPU}{C\-P\-U\-\_\-t} $\ast$cpu, F\-I\-L\-E $\ast$in\-\_\-file)
+\begin{DoxyCompactList}\small\item\em it stores commands from file inside array in \hyperlink{structCPU}{C\-P\-U} \end{DoxyCompactList}\item 
+int \hyperlink{CPU_8h_aec43595c97c41e1a1b97277b6f1bbef8}{C\-P\-U\-\_\-\-Run} (\hyperlink{structCPU}{C\-P\-U\-\_\-t} $\ast$cpu)
+\begin{DoxyCompactList}\small\item\em Main part of \hyperlink{structCPU}{C\-P\-U} -\/ it processes commands. \end{DoxyCompactList}\item 
+int \hyperlink{CPU_8h_a2f295632998bf4fe19082a98a4394378}{Verify\-\_\-\-Signature} (F\-I\-L\-E $\ast$file)
+\begin{DoxyCompactList}\small\item\em it verifies if the signature of file is correct \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{CPU_8h_a3c010c47abcb71d77991d6d109ea45c0}{const int {\bfseries Poison} = (int) 0x\-D\-E\-A\-D}\label{CPU_8h_a3c010c47abcb71d77991d6d109ea45c0}
+
+\item 
+\hypertarget{CPU_8h_a42233f16f2a85bf5b6534e38ca0affee}{const unsigned int {\bfseries M\-A\-X\-I\-M\-U\-M\-\_\-\-C\-O\-D\-E\-\_\-\-L\-E\-N\-G\-T\-H} = 1000}\label{CPU_8h_a42233f16f2a85bf5b6534e38ca0affee}
+
+\item 
+\hypertarget{CPU_8h_a68450d6cc484c2cb230a190f3b3d79b6}{const unsigned int {\bfseries M\-A\-X\-I\-M\-U\-M\-\_\-\-C\-M\-D\-\_\-\-L\-E\-N\-G\-T\-H} = 15}\label{CPU_8h_a68450d6cc484c2cb230a190f3b3d79b6}
+
+\item 
+\hypertarget{CPU_8h_a0eefda6827b437890af4deb5bc228ae4}{const char {\bfseries S\-I\-G\-N\-A\-T\-U\-R\-E} \mbox{[}3\mbox{]} = \char`\"{}A\-Q\char`\"{}}\label{CPU_8h_a0eefda6827b437890af4deb5bc228ae4}
+
+\item 
+\hypertarget{CPU_8h_af874fa73d0a32f36c7c5faac9c7fb9a2}{const double {\bfseries V\-E\-R\-S\-I\-O\-N} = 1.\-12}\label{CPU_8h_af874fa73d0a32f36c7c5faac9c7fb9a2}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+
+
+\subsection{Function Documentation}
+\hypertarget{CPU_8h_afcd986a69c8c15521a355a21058834f1}{\index{C\-P\-U.\-h@{C\-P\-U.\-h}!C\-P\-U\-\_\-\-Dump@{C\-P\-U\-\_\-\-Dump}}
+\index{C\-P\-U\-\_\-\-Dump@{C\-P\-U\-\_\-\-Dump}!CPU.h@{C\-P\-U.\-h}}
+\subsubsection[{C\-P\-U\-\_\-\-Dump}]{\setlength{\rightskip}{0pt plus 5cm}void C\-P\-U\-\_\-\-Dump (
+\begin{DoxyParamCaption}
+\item[{const {\bf C\-P\-U\-\_\-t} $\ast$}]{cpu}
+\end{DoxyParamCaption}
+)}}\label{CPU_8h_afcd986a69c8c15521a355a21058834f1}
+
+
+it prints dump info for \hyperlink{structCPU}{C\-P\-U} 
+
+
+
+ C\-P\-U\-\_\-\-D\-U\-M\-P
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em cpu} & pointer to \hyperlink{structCPU}{C\-P\-U}\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+Stack\-\_\-\-Dump 
+\end{DoxySeeAlso}
+\hypertarget{CPU_8h_a7968a26c9010ca5e8003286ecc06fe8b}{\index{C\-P\-U.\-h@{C\-P\-U.\-h}!C\-P\-U\-\_\-\-Load\-\_\-\-Data@{C\-P\-U\-\_\-\-Load\-\_\-\-Data}}
+\index{C\-P\-U\-\_\-\-Load\-\_\-\-Data@{C\-P\-U\-\_\-\-Load\-\_\-\-Data}!CPU.h@{C\-P\-U.\-h}}
+\subsubsection[{C\-P\-U\-\_\-\-Load\-\_\-\-Data}]{\setlength{\rightskip}{0pt plus 5cm}int C\-P\-U\-\_\-\-Load\-\_\-\-Data (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-P\-U\-\_\-t} $\ast$}]{cpu, }
+\item[{F\-I\-L\-E $\ast$}]{in\-\_\-file}
+\end{DoxyParamCaption}
+)}}\label{CPU_8h_a7968a26c9010ca5e8003286ecc06fe8b}
+
+
+it stores commands from file inside array in \hyperlink{structCPU}{C\-P\-U} 
+
+
+
+ C\-P\-U\-\_\-\-Load\-\_\-\-Data
+
+\begin{DoxyItemize}
+\item cpu pointer to \hyperlink{structCPU}{C\-P\-U} \item in\-\_\-file file descriptor\end{DoxyItemize}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{Asm_8h_a544f04282a6d57851c054c8a0d6bfb67}{Assembler} 
+
+\hyperlink{CPU__functions_8cpp_a2f295632998bf4fe19082a98a4394378}{Verify\-\_\-\-Signature}
+\end{DoxySeeAlso}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0/1} & !\-F\-I\-X\-M\-E! \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{CPU_8h_aec43595c97c41e1a1b97277b6f1bbef8}{\index{C\-P\-U.\-h@{C\-P\-U.\-h}!C\-P\-U\-\_\-\-Run@{C\-P\-U\-\_\-\-Run}}
+\index{C\-P\-U\-\_\-\-Run@{C\-P\-U\-\_\-\-Run}!CPU.h@{C\-P\-U.\-h}}
+\subsubsection[{C\-P\-U\-\_\-\-Run}]{\setlength{\rightskip}{0pt plus 5cm}int C\-P\-U\-\_\-\-Run (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-P\-U\-\_\-t} $\ast$}]{cpu}
+\end{DoxyParamCaption}
+)}}\label{CPU_8h_aec43595c97c41e1a1b97277b6f1bbef8}
+
+
+Main part of \hyperlink{structCPU}{C\-P\-U} -\/ it processes commands. 
+
+
+
+ C\-P\-U\-\_\-\-Run
+
+\begin{DoxyItemize}
+\item cpu pointer to \hyperlink{structCPU}{C\-P\-U}\end{DoxyItemize}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0/1} & !\-F\-I\-X\-M\-E! \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{CPU_8h_a2f295632998bf4fe19082a98a4394378}{\index{C\-P\-U.\-h@{C\-P\-U.\-h}!Verify\-\_\-\-Signature@{Verify\-\_\-\-Signature}}
+\index{Verify\-\_\-\-Signature@{Verify\-\_\-\-Signature}!CPU.h@{C\-P\-U.\-h}}
+\subsubsection[{Verify\-\_\-\-Signature}]{\setlength{\rightskip}{0pt plus 5cm}int Verify\-\_\-\-Signature (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{CPU_8h_a2f295632998bf4fe19082a98a4394378}
+
+
+it verifies if the signature of file is correct 
+
+
+
+ Verify\-\_\-\-Signature
+
+\begin{DoxyItemize}
+\item file file to check signature descriptor\end{DoxyItemize}
+
+\begin{DoxyRetVals}{Return values}
+{\em S\-I\-G\-N\-\_\-\-O\-K} & or S\-I\-G\-N\-\_\-\-W\-R\-O\-N\-G \\
+\hline
+\end{DoxyRetVals}

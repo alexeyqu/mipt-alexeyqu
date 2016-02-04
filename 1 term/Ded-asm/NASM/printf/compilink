@@ -1,0 +1,2 @@
+nasm -f elf -F stabs printf.asm
+ld printf.o -o printf

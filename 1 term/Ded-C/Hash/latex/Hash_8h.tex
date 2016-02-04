@@ -1,0 +1,231 @@
+\hypertarget{Hash_8h}{\section{Hash.\-h File Reference}
+\label{Hash_8h}\index{Hash.\-h@{Hash.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structelem}{elem}
+\item 
+struct \hyperlink{structlist}{list}
+\item 
+struct \hyperlink{structhashtable}{hashtable}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Hash_8h_ad72dbcf6d0153db1b8d8a58001feed83}{\#define {\bfseries D\-E\-B\-U\-G}~0}\label{Hash_8h_ad72dbcf6d0153db1b8d8a58001feed83}
+
+\item 
+\#define {\bfseries K\-E\-Y\-\_\-\-C\-H\-E\-C\-K\-\_\-}(key)
+\item 
+\#define {\bfseries I\-N\-D\-E\-X\-\_\-\-C\-H\-E\-C\-K\-\_\-}(index)
+\item 
+\hypertarget{Hash_8h_aec78e7a9e90a406a56f859ee456e8eae}{\#define {\bfseries O\-U\-T}~if (0)}\label{Hash_8h_aec78e7a9e90a406a56f859ee456e8eae}
+
+\item 
+\hypertarget{Hash_8h_a0966b817b229d48e5ffc7feab19a0be6}{\#define {\bfseries A\-S\-S\-E\-R\-T}(cond)}\label{Hash_8h_a0966b817b229d48e5ffc7feab19a0be6}
+
+\item 
+\hypertarget{Hash_8h_a25df50b9f22f3e22ad7f969b8320e59f}{\#define {\bfseries H\-T\-E\-C}(func)~if (\hyperlink{group__misc_gabcb85c59ba32786770db75b960d5b12a}{Hashtable\-\_\-\-Error\-\_\-\-Catch} (func, \char`\"{}\char`\"{}) == H\-T\-\_\-\-E\-R\-R) A\-S\-S\-E\-R\-T (!\char`\"{}Here it was\-:\char`\"{});}\label{Hash_8h_a25df50b9f22f3e22ad7f969b8320e59f}
+
+\item 
+\hypertarget{Hash_8h_af92ea0a54a7641ed8fcd75f0a6ddaf43}{\#define {\bfseries L\-I\-S\-T\-\_\-\-C\-H\-E\-C\-K\-\_\-}(\hyperlink{structlist}{list})~H\-T\-E\-C (List\-\_\-\-Is\-\_\-\-O\-K (\hyperlink{structlist}{list}));}\label{Hash_8h_af92ea0a54a7641ed8fcd75f0a6ddaf43}
+
+\item 
+\hypertarget{Hash_8h_a892484760dcefd9faf9d7f47c159f141}{\#define {\bfseries E\-L\-E\-M\-\_\-\-C\-H\-E\-C\-K\-\_\-}(\hyperlink{structelem}{elem})~H\-T\-E\-C (Elem\-\_\-\-Is\-\_\-\-O\-K (\hyperlink{structelem}{elem}));}\label{Hash_8h_a892484760dcefd9faf9d7f47c159f141}
+
+\item 
+\hypertarget{Hash_8h_aecd951adc3782d68ed0e164a6404688d}{\#define {\bfseries H\-A\-S\-H\-T\-A\-B\-L\-E\-\_\-\-C\-H\-E\-C\-K\-\_\-}(\hyperlink{structhashtable}{hashtable})~H\-T\-E\-C (Hashtable\-\_\-\-Is\-\_\-\-O\-K (\hyperlink{structhashtable}{hashtable}));}\label{Hash_8h_aecd951adc3782d68ed0e164a6404688d}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Hash_8h_a14aec81bdea9c2d34b666b7157117387}{typedef struct \hyperlink{structelem}{elem} {\bfseries elem\-\_\-t}}\label{Hash_8h_a14aec81bdea9c2d34b666b7157117387}
+
+\item 
+\hypertarget{Hash_8h_af629e6a6713d7de11eab50cbe6449b06}{typedef struct \hyperlink{structlist}{list} {\bfseries list\-\_\-t}}\label{Hash_8h_af629e6a6713d7de11eab50cbe6449b06}
+
+\item 
+\hypertarget{Hash_8h_a07e36569668e35018fe256a44252be1c}{typedef struct \hyperlink{structhashtable}{hashtable} {\bfseries hashtable\-\_\-t}}\label{Hash_8h_a07e36569668e35018fe256a44252be1c}
+
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries E\-R\-R\-\_\-\-E\-L\-E\-M} \{ \\*
+{\bfseries E\-L\-E\-M\-\_\-\-O\-K} = 1000, 
+{\bfseries E\-L\-E\-M\-\_\-\-N\-U\-L\-L} = 1001, 
+{\bfseries E\-L\-E\-M\-\_\-\-N\-U\-L\-L\-\_\-\-K\-E\-Y} = 1002, 
+{\bfseries E\-L\-E\-M\-\_\-\-W\-R\-\_\-\-K\-E\-Y\-\_\-\-R\-A\-N\-G\-E} = 1003, 
+\\*
+{\bfseries E\-L\-E\-M\-\_\-\-N\-O\-M\-E\-M} = 1004
+ \}
+\item 
+enum {\bfseries E\-R\-R\-\_\-\-L\-I\-S\-T} \{ {\bfseries L\-I\-S\-T\-\_\-\-O\-K} = 2000, 
+{\bfseries L\-I\-S\-T\-\_\-\-N\-U\-L\-L} = 2001, 
+{\bfseries L\-I\-S\-T\-\_\-\-W\-R\-\_\-\-N\-D\-X\-\_\-\-R\-A\-N\-G\-E} = 2002, 
+{\bfseries L\-I\-S\-T\-\_\-\-I\-N\-V} = 2003
+ \}
+\item 
+enum {\bfseries E\-R\-R\-\_\-\-H\-A\-S\-H\-T\-A\-B\-L\-E} \{ \\*
+{\bfseries H\-T\-\_\-\-E\-R\-R} = -\/1, 
+{\bfseries H\-T\-\_\-\-O\-K} = 3000, 
+{\bfseries H\-T\-\_\-\-N\-U\-L\-L} = 3001, 
+{\bfseries H\-T\-\_\-\-W\-R\-\_\-\-H\-V\-\_\-\-R\-A\-N\-G\-E} = 3002, 
+\\*
+{\bfseries H\-T\-\_\-\-B\-A\-D\-\_\-\-F\-I\-L\-E} = 3003, 
+{\bfseries H\-T\-\_\-\-W\-R\-\_\-\-I\-N\-P\-U\-T} = 3004, 
+{\bfseries H\-T\-\_\-\-I\-N\-V} = 3005
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Hash_8h_aee73aeb34bf06bc19b6b0477b942f4e9}{int {\bfseries Elem\-\_\-\-Construct} (\hyperlink{structelem}{elem\-\_\-t} $\ast$$\ast$\hyperlink{structelem}{elem}, const char $\ast$key)}\label{Hash_8h_aee73aeb34bf06bc19b6b0477b942f4e9}
+
+\item 
+\hypertarget{Hash_8h_ac430fdc192ededd4ddba35294506bc2c}{int {\bfseries Elem\-\_\-\-Destruct} (\hyperlink{structelem}{elem\-\_\-t} $\ast$\hyperlink{structelem}{elem})}\label{Hash_8h_ac430fdc192ededd4ddba35294506bc2c}
+
+\item 
+\hypertarget{Hash_8h_a70696b7c921c420c742ceb304268c91b}{int {\bfseries Elem\-\_\-\-Is\-\_\-\-O\-K} (\hyperlink{structelem}{elem\-\_\-t} $\ast$\hyperlink{structelem}{elem})}\label{Hash_8h_a70696b7c921c420c742ceb304268c91b}
+
+\item 
+\hypertarget{Hash_8h_a9b08aec6187c81ccf30b3c3a6617db0f}{void {\bfseries Elem\-\_\-\-Dump} (\hyperlink{structelem}{elem\-\_\-t} $\ast$\hyperlink{structelem}{elem}, F\-I\-L\-E $\ast$log)}\label{Hash_8h_a9b08aec6187c81ccf30b3c3a6617db0f}
+
+\item 
+\hypertarget{Hash_8h_a21f84e39e3db8ed2e7296afcb6940e40}{int {\bfseries List\-\_\-\-Construct} (\hyperlink{structlist}{list\-\_\-t} $\ast$\hyperlink{structlist}{list})}\label{Hash_8h_a21f84e39e3db8ed2e7296afcb6940e40}
+
+\item 
+\hypertarget{Hash_8h_a45672534ba9c5dbd942a46653f909106}{int {\bfseries List\-\_\-\-Destruct} (\hyperlink{structlist}{list\-\_\-t} $\ast$\hyperlink{structlist}{list})}\label{Hash_8h_a45672534ba9c5dbd942a46653f909106}
+
+\item 
+\hypertarget{Hash_8h_af02aafce219b9ea72b580b00006dd760}{int {\bfseries List\-\_\-\-Is\-\_\-\-O\-K} (\hyperlink{structlist}{list\-\_\-t} $\ast$\hyperlink{structlist}{list})}\label{Hash_8h_af02aafce219b9ea72b580b00006dd760}
+
+\item 
+\hypertarget{Hash_8h_aa345ed8f3ec64077c845a9925ee76927}{void {\bfseries List\-\_\-\-Dump} (\hyperlink{structlist}{list\-\_\-t} $\ast$\hyperlink{structlist}{list}, F\-I\-L\-E $\ast$log)}\label{Hash_8h_aa345ed8f3ec64077c845a9925ee76927}
+
+\item 
+int \hyperlink{group__list_gacc2fd7b733d7485754042bcd16f9ae73}{List\-\_\-\-Add\-\_\-\-Elem} (\hyperlink{structlist}{list\-\_\-t} $\ast$\hyperlink{structlist}{list}, \hyperlink{structelem}{elem\-\_\-t} $\ast$\hyperlink{structelem}{elem}, unsigned int index)
+\begin{DoxyCompactList}\small\item\em Adds new element into list's specified index. \end{DoxyCompactList}\item 
+int \hyperlink{group__list_ga7a77a96abbdf34f11a88b9d113259090}{List\-\_\-\-Delete\-\_\-\-Elem} (\hyperlink{structlist}{list\-\_\-t} $\ast$\hyperlink{structlist}{list}, unsigned int index)
+\begin{DoxyCompactList}\small\item\em Deletes element from list's specified index. \end{DoxyCompactList}\item 
+int \hyperlink{group__list_gabaa3870d04053e03b767e4b241ef976c}{List\-\_\-\-Find\-\_\-\-Key} (\hyperlink{structlist}{list\-\_\-t} $\ast$\hyperlink{structlist}{list}, const char $\ast$key, int $\ast$index)
+\begin{DoxyCompactList}\small\item\em Searches through the list for an element with key needed. \end{DoxyCompactList}\item 
+int \hyperlink{group__list_gad1517c4849acea510f077bd38671e316}{List\-\_\-\-Print} (\hyperlink{structlist}{list\-\_\-t} $\ast$\hyperlink{structlist}{list}, F\-I\-L\-E $\ast$output)
+\begin{DoxyCompactList}\small\item\em Prints hashtable into file. \end{DoxyCompactList}\item 
+\hypertarget{Hash_8h_a44f8abaf05ee7732e859c2e1f89d142c}{int {\bfseries Hashtable\-\_\-\-Construct} (\hyperlink{structhashtable}{hashtable\-\_\-t} $\ast$\hyperlink{structhashtable}{hashtable}, unsigned int max\-\_\-hashvalue)}\label{Hash_8h_a44f8abaf05ee7732e859c2e1f89d142c}
+
+\item 
+\hypertarget{Hash_8h_a8540ad0b281ee87feb8cdf075ac641b0}{int {\bfseries Hashtable\-\_\-\-Destruct} (\hyperlink{structhashtable}{hashtable\-\_\-t} $\ast$\hyperlink{structhashtable}{hashtable})}\label{Hash_8h_a8540ad0b281ee87feb8cdf075ac641b0}
+
+\item 
+\hypertarget{Hash_8h_a0341b7761179d12bbdf741fb8d83ac9f}{int {\bfseries Hashtable\-\_\-\-Is\-\_\-\-O\-K} (\hyperlink{structhashtable}{hashtable\-\_\-t} $\ast$\hyperlink{structhashtable}{hashtable})}\label{Hash_8h_a0341b7761179d12bbdf741fb8d83ac9f}
+
+\item 
+\hypertarget{Hash_8h_a34d4f56859f0d454d8a8f323df1363d6}{void {\bfseries Hashtable\-\_\-\-Dump} (\hyperlink{structhashtable}{hashtable\-\_\-t} $\ast$\hyperlink{structhashtable}{hashtable}, F\-I\-L\-E $\ast$log)}\label{Hash_8h_a34d4f56859f0d454d8a8f323df1363d6}
+
+\item 
+int \hyperlink{group__hash_ga5e0fa3c7b9b8ba7b3dcfefccf07a1434}{Hashtable\-\_\-\-Add\-\_\-\-Key} (\hyperlink{structhashtable}{hashtable\-\_\-t} $\ast$\hyperlink{structhashtable}{hashtable}, const char $\ast$key, int($\ast$hash)(const char $\ast$key, int $\ast$hash))
+\begin{DoxyCompactList}\small\item\em Add new element to one of hashtable's lists using hash function. \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga1ae85ee59f675e249267850f117bb62e}{Hashtable\-\_\-\-Fill} (\hyperlink{structhashtable}{hashtable\-\_\-t} $\ast$\hyperlink{structhashtable}{hashtable}, F\-I\-L\-E $\ast$input, int($\ast$hash)(const char $\ast$key, int $\ast$hash))
+\begin{DoxyCompactList}\small\item\em Fills hashtable using words from input file. \end{DoxyCompactList}\item 
+int \hyperlink{Hash_8h_a6acc27e9c8b926573552faeee38e07ff}{Hashtable\-\_\-\-Print} (\hyperlink{structhashtable}{hashtable\-\_\-t} $\ast$\hyperlink{structhashtable}{hashtable}, F\-I\-L\-E $\ast$output)
+\begin{DoxyCompactList}\small\item\em Unstaged yet. \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_gae22d7ca59e18ed64f1965727322a8b1d}{hash\-\_\-1} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga50efdf504c9ddd4a6b9967cecd35e930}{hash\-\_\-2} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga8d3badbedaa080eca63bbdc3e7e53351}{hash\-\_\-3} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga80eec9e1e43d467ef356df6d28a949a1}{hash\-\_\-4} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga5544c3b5dcfe52e427a9df98d7524d41}{hash\-\_\-5} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_gae1e43eb3a2f9acfdfbfd951c9a879e2e}{hash\-\_\-6} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__misc_gabcb85c59ba32786770db75b960d5b12a}{Hashtable\-\_\-\-Error\-\_\-\-Catch} (int error, const char $\ast$msg,...)
+\begin{DoxyCompactList}\small\item\em Error catcher, what? \end{DoxyCompactList}\item 
+int \hyperlink{group__misc_ga88a28b2b6f61a27eedcbea62e62d74ad}{Adapt\-\_\-\-Input} (F\-I\-L\-E $\ast$input, F\-I\-L\-E $\ast$output)
+\begin{DoxyCompactList}\small\item\em tramsforms input file into good format style (no punctuation etc.) \end{DoxyCompactList}\item 
+int \hyperlink{group__misc_ga37ed21b76159b5e7dc9d9f8ac39d384f}{R\-O\-L} (int arg, int shift)
+\begin{DoxyCompactList}\small\item\em bit left shift \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Hash_8h_af086ed3f61750a30d9f6f5a397e0edc0}{const unsigned int \hyperlink{Hash_8h_af086ed3f61750a30d9f6f5a397e0edc0}{Max\-\_\-\-Len} = 50}\label{Hash_8h_af086ed3f61750a30d9f6f5a397e0edc0}
+
+\begin{DoxyCompactList}\small\item\em Maximum length of key. \end{DoxyCompactList}\item 
+\hypertarget{Hash_8h_a212f2cf1a56967f3d3b71da2f1133251}{const unsigned int \hyperlink{Hash_8h_a212f2cf1a56967f3d3b71da2f1133251}{Poison} = 0x\-D\-E\-A\-D}\label{Hash_8h_a212f2cf1a56967f3d3b71da2f1133251}
+
+\begin{DoxyCompactList}\small\item\em Poison value. \end{DoxyCompactList}\item 
+\hypertarget{Hash_8h_aa29e1f00da15ce0c4f2b8a6d2018c2fd}{const unsigned int \hyperlink{Hash_8h_aa29e1f00da15ce0c4f2b8a6d2018c2fd}{M\-A\-X\-\_\-\-H\-A\-S\-H\-V\-A\-L\-U\-E} = 10000}\label{Hash_8h_aa29e1f00da15ce0c4f2b8a6d2018c2fd}
+
+\begin{DoxyCompactList}\small\item\em Maximum hash value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Hash_8h_a38fed2bd6fcf2d3f56af884b70171fc7}{\index{Hash.\-h@{Hash.\-h}!I\-N\-D\-E\-X\-\_\-\-C\-H\-E\-C\-K\-\_\-@{I\-N\-D\-E\-X\-\_\-\-C\-H\-E\-C\-K\-\_\-}}
+\index{I\-N\-D\-E\-X\-\_\-\-C\-H\-E\-C\-K\-\_\-@{I\-N\-D\-E\-X\-\_\-\-C\-H\-E\-C\-K\-\_\-}!Hash.h@{Hash.\-h}}
+\subsubsection[{I\-N\-D\-E\-X\-\_\-\-C\-H\-E\-C\-K\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-D\-E\-X\-\_\-\-C\-H\-E\-C\-K\-\_\-(
+\begin{DoxyParamCaption}
+\item[{}]{index}
+\end{DoxyParamCaption}
+)}}\label{Hash_8h_a38fed2bd6fcf2d3f56af884b70171fc7}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (index > \hyperlink{structlist}{list}->length)\(\backslash\)
+    \{\(\backslash\)
+        OUT (stdout, \textcolor{stringliteral}{"Invalid index in list [%08x].\(\backslash\)n"}, (\textcolor{keywordtype}{int}) \hyperlink{structlist}{list}); \(\backslash\)
+        return LIST\_WR\_NDX\_RANGE;\(\backslash\)
+    \}
+\end{DoxyCode}
+\hypertarget{Hash_8h_af2dcb05487e9c15209c9c4fcd187f8b6}{\index{Hash.\-h@{Hash.\-h}!K\-E\-Y\-\_\-\-C\-H\-E\-C\-K\-\_\-@{K\-E\-Y\-\_\-\-C\-H\-E\-C\-K\-\_\-}}
+\index{K\-E\-Y\-\_\-\-C\-H\-E\-C\-K\-\_\-@{K\-E\-Y\-\_\-\-C\-H\-E\-C\-K\-\_\-}!Hash.h@{Hash.\-h}}
+\subsubsection[{K\-E\-Y\-\_\-\-C\-H\-E\-C\-K\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define K\-E\-Y\-\_\-\-C\-H\-E\-C\-K\-\_\-(
+\begin{DoxyParamCaption}
+\item[{}]{key}
+\end{DoxyParamCaption}
+)}}\label{Hash_8h_af2dcb05487e9c15209c9c4fcd187f8b6}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (key == NULL)\(\backslash\)
+    \{\(\backslash\)
+        OUT (stdout, \textcolor{stringliteral}{"\(\backslash\)tKey is inallocated.\(\backslash\)n"}); \(\backslash\)
+        return ELEM\_NULL\_KEY;\(\backslash\)
+    \}\(\backslash\)
+    if (strlen (key) >= \hyperlink{Hash_8h_af086ed3f61750a30d9f6f5a397e0edc0}{Max\_Len})\(\backslash\)
+    \{\(\backslash\)
+        OUT (stdout, \textcolor{stringliteral}{"\(\backslash\)tToo big size of key.\(\backslash\)n"}); \(\backslash\)
+        return ELEM\_WR\_KEY\_RANGE;\(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{Hash_8h_a6acc27e9c8b926573552faeee38e07ff}{\index{Hash.\-h@{Hash.\-h}!Hashtable\-\_\-\-Print@{Hashtable\-\_\-\-Print}}
+\index{Hashtable\-\_\-\-Print@{Hashtable\-\_\-\-Print}!Hash.h@{Hash.\-h}}
+\subsubsection[{Hashtable\-\_\-\-Print}]{\setlength{\rightskip}{0pt plus 5cm}int Hashtable\-\_\-\-Print (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable, }
+\item[{F\-I\-L\-E $\ast$}]{output}
+\end{DoxyParamCaption}
+)}}\label{Hash_8h_a6acc27e9c8b926573552faeee38e07ff}
+
+
+Unstaged yet. 
+
+
+
+ Hashtable\-\_\-\-Print 

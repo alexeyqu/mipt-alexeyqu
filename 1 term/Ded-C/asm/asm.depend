@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1383853567 source:/home/aq/MIPT_Prog/asm/asm.cpp
+	"asm.h"
+
+1383853607 /home/aq/MIPT_Prog/asm/asm.h
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<string.h>
+	"commands.h"
+
+1383853609 /home/aq/MIPT_Prog/asm/commands.h
+

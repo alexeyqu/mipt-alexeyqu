@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="Asm.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="1781" topLine="66" />
+	</File>
+	<File name="Asm.h" open="0" top="0" tabpos="4">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="CPU.h" open="0" top="0" tabpos="3">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="CPU_functions.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="8489" topLine="245" />
+	</File>
+	<File name="CPU_main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="951" topLine="21" />
+	</File>
+	<File name="Commands.h" open="1" top="0" tabpos="4">
+		<Cursor position="790" topLine="25" />
+	</File>
+	<File name="Stack.h" open="0" top="0" tabpos="1">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="Stack_functions.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="0" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

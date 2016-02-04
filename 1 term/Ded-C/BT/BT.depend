@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1401095619 source:/home/aq/MIPT_Prog/C/BT/BT_EmptyfileGen.cpp
+	"BT.h"
+
+1401118216 source:/home/aq/MIPT_Prog/C/BT/BT_Translate.cpp
+	"BT.h"
+
+1401112969 source:/home/aq/MIPT_Prog/C/BT/BT_main.cpp
+	"BT.h"
+
+1401115497 /home/aq/MIPT_Prog/C/BT/BT.h
+	<stdlib.h>
+	<stdio.h>
+	<assert.h>
+	<string.h>
+	"commands.h"
+
+1401040238 source:/home/aq/MIPT_Prog/C/BT/BT_Misc.cpp
+	"BT.h"
+
+1401111990 /home/aq/MIPT_Prog/C/BT/commands.h
+

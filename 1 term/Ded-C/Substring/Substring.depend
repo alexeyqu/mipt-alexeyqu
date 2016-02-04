@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1408475842 source:/home/aq/Dropbox/MIPT/MIPT_Prog/C/Substring/Substring.cpp
+	"Substring.h"
+
+1408472882 /home/aq/Dropbox/MIPT/MIPT_Prog/C/Substring/Substring.h
+	<stdio.h>
+	<stdlib.h>
+
+1408472731 source:/home/aq/Dropbox/MIPT/MIPT_Prog/C/Substring/Substring_functions.cpp
+	"Substring.h"
+

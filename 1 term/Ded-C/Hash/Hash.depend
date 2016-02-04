@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1387784840 source:/home/aq/MIPT_Prog/Hash/Hash_main.cpp
+	"Hash.h"
+
+1388221965 /home/aq/MIPT_Prog/Hash/Hash.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<time.h>
+	<stdarg.h>
+
+1386347782 source:/home/aq/MIPT_Prog/Hash/Hash_functions.cpp
+	"Hash.h"
+
+1386429734 source:/home/aq/MIPT_Prog/Hash/Elem_functions.cpp
+	"Hash.h"
+
+1386429722 source:/home/aq/MIPT_Prog/Hash/List_functions.cpp
+	"Hash.h"
+
+1388222005 source:/home/aq/MIPT_Prog/Hash/Hashtable_functions.cpp
+	"Hash.h"
+
+1386339522 source:/home/aq/MIPT_Prog/Hash/Misc.cpp
+	"Hash.h"
+

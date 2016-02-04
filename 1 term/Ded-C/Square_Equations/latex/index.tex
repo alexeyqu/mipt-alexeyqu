@@ -1,0 +1,56 @@
+\begin{DoxyDate}{\-Date}
+2014-\/08-\/19 22\-:12 
+\end{DoxyDate}
+\begin{DoxyAuthor}{\-Author}
+\-Alexey \-Kulikov $<$\href{mailto:alexeyqu@gmail.com}{\tt alexeyqu@gmail.\-com}$>$, group 376, \-D\-C\-A\-M \-M\-I\-P\-T 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{\-Version}
+1.\-04
+\end{DoxyVersion}
+\begin{DoxyNote}{\-Note}
+\-V1.\-00\-:
+\begin{DoxyItemize}
+\item added \hyperlink{Square__Equations_8cpp_ab2dd9b24e0e487efdd1cd1f40dd3a023}{\-Solve\-Square()} function
+\item added some debug prints
+\item gets 3 coefficients, prints number of solutions and roots themselves.
+\end{DoxyItemize}
+
+\-V1.\-01
+\begin{DoxyItemize}
+\item added standart assert check of correct input and variables
+\item double values are comparing with defined \-E\-P\-S instead of zero
+\end{DoxyItemize}
+
+\-V1.\-02
+\begin{DoxyItemize}
+\item added \-Doxygen comments
+\item added preprocessor commands support -\/-\/ realised full-\/functional \-A\-S\-S\-E\-R\-T macros -\/-\/ added optional extra debug user-\/friendly output conrolled by flag \-\_\-\-E\-J\-C (if defined, then debug mode is on and program prints debug info automatically precessed by '\#' at the beginning of each line)
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyParagraph}{\-V1.03}
+
+\begin{DoxyItemize}
+\item updated \-Doxygen comments
+\item added inline functions comparing double value with zero (is\-\_\-zero, above\-\_\-zero, below\-\_\-zero)
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{\-V1.031}
+
+\begin{DoxyItemize}
+\item style of define flags determining \-A\-S\-S\-E\-R\-T is standart now
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{\-V1.04}
+
+\begin{DoxyItemize}
+\item final code review
+\end{DoxyItemize}
+\end{DoxyParagraph}
+\-Solve a quadratic equation considering particular cases.
+
+\begin{DoxyParagraph}{\-Task.}
+\-The program gets 3 coefficients of a quadratic equation, determines the type of the equation, solves it and prints number of solutions (-\/1 if infinite) and roots themselves.
+\end{DoxyParagraph}
+\begin{DoxyWarning}{\-Warning}
+\-Do not enter invalid set of coefficients! 
+\end{DoxyWarning}

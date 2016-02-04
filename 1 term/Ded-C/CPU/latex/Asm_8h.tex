@@ -1,0 +1,114 @@
+\hypertarget{Asm_8h}{\section{Asm.\-h File Reference}
+\label{Asm_8h}\index{Asm.\-h@{Asm.\-h}}
+}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{Asm_8h_a74a9a97dab6ae214853b15a708b7a6b2}{R\-E\-T\-\_\-\-A\-S\-M} \{ \\*
+{\bfseries A\-S\-M\-\_\-\-E\-R\-R\-O\-R} = -\/1, 
+{\bfseries A\-S\-M\-\_\-\-E\-N\-D} = 0, 
+{\bfseries A\-S\-M\-\_\-\-O\-K} = 1, 
+{\bfseries R\-E\-G\-\_\-\-W\-R\-O\-N\-G} = -\/1, 
+\\*
+{\bfseries S\-I\-G\-N\-\_\-\-O\-K} = 10, 
+{\bfseries S\-I\-G\-N\-\_\-\-W\-R\-O\-N\-G} = 11
+ \}
+\begin{DoxyCompactList}\small\item\em list of return codes \end{DoxyCompactList}\item 
+enum {\bfseries A\-S\-M\-\_\-\-D\-I\-R\-S} \{ {\bfseries D\-I\-R\-\_\-\-P\-R\-O\-C} = 2001
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Asm_8h_a544f04282a6d57851c054c8a0d6bfb67}{Assembler} (F\-I\-L\-E $\ast$in\-\_\-structions, F\-I\-L\-E $\ast$out\-\_\-code)
+\begin{DoxyCompactList}\small\item\em it assemblies instructions into a machine code \end{DoxyCompactList}\item 
+int \hyperlink{Asm_8h_abe0f7b24bc0595b5b83bf384b93369ef}{Disasm} (F\-I\-L\-E $\ast$in\-\_\-code, F\-I\-L\-E $\ast$out\-\_\-structions)
+\begin{DoxyCompactList}\small\item\em it disassemblies code into readable instructions \end{DoxyCompactList}\item 
+\hypertarget{Asm_8h_a8a0e6af8a6f10f15b4ac3cebfb655f23}{int {\bfseries Choose\-\_\-\-Reg} (const int type, char reg\mbox{[}$\,$\mbox{]})}\label{Asm_8h_a8a0e6af8a6f10f15b4ac3cebfb655f23}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Asm_8h_a351a2439971f212f4b81256c07ec14a3}{const int {\bfseries N\-U\-M\-\_\-\-O\-F\-\_\-\-L\-A\-B\-E\-L\-S} = 10}\label{Asm_8h_a351a2439971f212f4b81256c07ec14a3}
+
+\item 
+\hypertarget{Asm_8h_a09661a74656d42147f8bc8b699158a01}{const int {\bfseries N\-U\-M\-\_\-\-O\-F\-\_\-\-P\-R\-O\-C} = 10}\label{Asm_8h_a09661a74656d42147f8bc8b699158a01}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{Asm_8h_a74a9a97dab6ae214853b15a708b7a6b2}{\index{Asm.\-h@{Asm.\-h}!R\-E\-T\-\_\-\-A\-S\-M@{R\-E\-T\-\_\-\-A\-S\-M}}
+\index{R\-E\-T\-\_\-\-A\-S\-M@{R\-E\-T\-\_\-\-A\-S\-M}!Asm.h@{Asm.\-h}}
+\subsubsection[{R\-E\-T\-\_\-\-A\-S\-M}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf R\-E\-T\-\_\-\-A\-S\-M}}}\label{Asm_8h_a74a9a97dab6ae214853b15a708b7a6b2}
+
+
+list of return codes 
+
+
+
+ R\-E\-T\-\_\-\-A\-S\-M 
+
+\subsection{Function Documentation}
+\hypertarget{Asm_8h_a544f04282a6d57851c054c8a0d6bfb67}{\index{Asm.\-h@{Asm.\-h}!Assembler@{Assembler}}
+\index{Assembler@{Assembler}!Asm.h@{Asm.\-h}}
+\subsubsection[{Assembler}]{\setlength{\rightskip}{0pt plus 5cm}int Assembler (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{in\-\_\-structions, }
+\item[{F\-I\-L\-E $\ast$}]{out\-\_\-code}
+\end{DoxyParamCaption}
+)}}\label{Asm_8h_a544f04282a6d57851c054c8a0d6bfb67}
+
+
+it assemblies instructions into a machine code 
+
+
+
+ Assembler
+
+\begin{DoxyItemize}
+\item in\-\_\-structions input file descriptor \item out\-\_\-code output file descriptor\end{DoxyItemize}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{CPU__functions_8cpp_a2f295632998bf4fe19082a98a4394378}{Verify\-\_\-\-Signature} 
+
+Disassembler
+\end{DoxySeeAlso}
+
+\begin{DoxyRetVals}{Return values}
+{\em R\-E\-T\-\_\-\-A\-S\-M} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{Asm_8h_abe0f7b24bc0595b5b83bf384b93369ef}{\index{Asm.\-h@{Asm.\-h}!Disasm@{Disasm}}
+\index{Disasm@{Disasm}!Asm.h@{Asm.\-h}}
+\subsubsection[{Disasm}]{\setlength{\rightskip}{0pt plus 5cm}int Disasm (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{in\-\_\-code, }
+\item[{F\-I\-L\-E $\ast$}]{out\-\_\-structions}
+\end{DoxyParamCaption}
+)}}\label{Asm_8h_abe0f7b24bc0595b5b83bf384b93369ef}
+
+
+it disassemblies code into readable instructions 
+
+
+
+ Assembler
+
+\begin{DoxyItemize}
+\item in\-\_\-structions input file descriptor \item out\-\_\-code output file descriptor\end{DoxyItemize}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{CPU__functions_8cpp_a2f295632998bf4fe19082a98a4394378}{Verify\-\_\-\-Signature} 
+
+\hyperlink{Asm_8h_a544f04282a6d57851c054c8a0d6bfb67}{Assembler}
+\end{DoxySeeAlso}
+
+\begin{DoxyRetVals}{Return values}
+{\em R\-E\-T\-\_\-\-A\-S\-M} & \\
+\hline
+\end{DoxyRetVals}

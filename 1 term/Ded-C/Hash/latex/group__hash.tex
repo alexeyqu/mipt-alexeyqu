@@ -1,0 +1,283 @@
+\hypertarget{group__hash}{\section{Hash}
+\label{group__hash}\index{Hash@{Hash}}
+}
+\subsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \hyperlink{Hash__functions_8cpp}{Hash\-\_\-functions.\-cpp}
+\item 
+file \hyperlink{Hashtable__functions_8cpp}{Hashtable\-\_\-functions.\-cpp}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{group__hash_ga5e0fa3c7b9b8ba7b3dcfefccf07a1434}{Hashtable\-\_\-\-Add\-\_\-\-Key} (\hyperlink{structhashtable}{hashtable\-\_\-t} $\ast$\hyperlink{structhashtable}{hashtable}, const char $\ast$key, int($\ast$hash)(const char $\ast$key, int $\ast$hash))
+\begin{DoxyCompactList}\small\item\em Add new element to one of hashtable's lists using hash function. \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga1ae85ee59f675e249267850f117bb62e}{Hashtable\-\_\-\-Fill} (\hyperlink{structhashtable}{hashtable\-\_\-t} $\ast$\hyperlink{structhashtable}{hashtable}, F\-I\-L\-E $\ast$input, int($\ast$hash)(const char $\ast$key, int $\ast$hash))
+\begin{DoxyCompactList}\small\item\em Fills hashtable using words from input file. \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_gae22d7ca59e18ed64f1965727322a8b1d}{hash\-\_\-1} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga50efdf504c9ddd4a6b9967cecd35e930}{hash\-\_\-2} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga8d3badbedaa080eca63bbdc3e7e53351}{hash\-\_\-3} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga80eec9e1e43d467ef356df6d28a949a1}{hash\-\_\-4} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_ga5544c3b5dcfe52e427a9df98d7524d41}{hash\-\_\-5} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\item 
+int \hyperlink{group__hash_gae1e43eb3a2f9acfdfbfd951c9a879e2e}{hash\-\_\-6} (const char $\ast$key, int $\ast$hash)
+\begin{DoxyCompactList}\small\item\em hashes key \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__hash_gae22d7ca59e18ed64f1965727322a8b1d}{\index{Hash@{Hash}!hash\-\_\-1@{hash\-\_\-1}}
+\index{hash\-\_\-1@{hash\-\_\-1}!Hash@{Hash}}
+\subsubsection[{hash\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}int hash\-\_\-1 (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{int $\ast$}]{hash}
+\end{DoxyParamCaption}
+)}}\label{group__hash_gae22d7ca59e18ed64f1965727322a8b1d}
+
+
+hashes key 
+
+
+
+ hash\-\_\-1
+
+\begin{DoxyParagraph}{f (key) = 0 (always 0!)}
+
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em key} & key to hash \\
+\hline
+\mbox{\tt out}  & {\em hash} & hash value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-H\-A\-S\-H\-T\-A\-B\-L\-E} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__hash_ga50efdf504c9ddd4a6b9967cecd35e930}{\index{Hash@{Hash}!hash\-\_\-2@{hash\-\_\-2}}
+\index{hash\-\_\-2@{hash\-\_\-2}!Hash@{Hash}}
+\subsubsection[{hash\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}int hash\-\_\-2 (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{int $\ast$}]{hash}
+\end{DoxyParamCaption}
+)}}\label{group__hash_ga50efdf504c9ddd4a6b9967cecd35e930}
+
+
+hashes key 
+
+
+
+ hash\-\_\-2
+
+\begin{DoxyParagraph}{f (key) = first A\-S\-C\-I\-I symbol code}
+
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em key} & key to hash \\
+\hline
+\mbox{\tt out}  & {\em hash} & hash value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-H\-A\-S\-H\-T\-A\-B\-L\-E} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__hash_ga8d3badbedaa080eca63bbdc3e7e53351}{\index{Hash@{Hash}!hash\-\_\-3@{hash\-\_\-3}}
+\index{hash\-\_\-3@{hash\-\_\-3}!Hash@{Hash}}
+\subsubsection[{hash\-\_\-3}]{\setlength{\rightskip}{0pt plus 5cm}int hash\-\_\-3 (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{int $\ast$}]{hash}
+\end{DoxyParamCaption}
+)}}\label{group__hash_ga8d3badbedaa080eca63bbdc3e7e53351}
+
+
+hashes key 
+
+
+
+ hash\-\_\-3
+
+\begin{DoxyParagraph}{f (key) = sum of A\-S\-C\-I\-I symbol codes}
+
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em key} & key to hash \\
+\hline
+\mbox{\tt out}  & {\em hash} & hash value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-H\-A\-S\-H\-T\-A\-B\-L\-E} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__hash_ga80eec9e1e43d467ef356df6d28a949a1}{\index{Hash@{Hash}!hash\-\_\-4@{hash\-\_\-4}}
+\index{hash\-\_\-4@{hash\-\_\-4}!Hash@{Hash}}
+\subsubsection[{hash\-\_\-4}]{\setlength{\rightskip}{0pt plus 5cm}int hash\-\_\-4 (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{int $\ast$}]{hash}
+\end{DoxyParamCaption}
+)}}\label{group__hash_ga80eec9e1e43d467ef356df6d28a949a1}
+
+
+hashes key 
+
+
+
+ hash\-\_\-4
+
+\begin{DoxyParagraph}{f (key) = average of A\-S\-C\-I\-I symbol codes}
+
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em key} & key to hash \\
+\hline
+\mbox{\tt out}  & {\em hash} & hash value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-H\-A\-S\-H\-T\-A\-B\-L\-E} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__hash_ga5544c3b5dcfe52e427a9df98d7524d41}{\index{Hash@{Hash}!hash\-\_\-5@{hash\-\_\-5}}
+\index{hash\-\_\-5@{hash\-\_\-5}!Hash@{Hash}}
+\subsubsection[{hash\-\_\-5}]{\setlength{\rightskip}{0pt plus 5cm}int hash\-\_\-5 (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{int $\ast$}]{hash}
+\end{DoxyParamCaption}
+)}}\label{group__hash_ga5544c3b5dcfe52e427a9df98d7524d41}
+
+
+hashes key 
+
+
+
+ hash\-\_\-5
+
+\begin{DoxyParagraph}{f (key) -\/ algorithm with usage of bitshifts etc. Well, look inside source code \-:)}
+
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em key} & key to hash \\
+\hline
+\mbox{\tt out}  & {\em hash} & hash value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-H\-A\-S\-H\-T\-A\-B\-L\-E} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__hash_gae1e43eb3a2f9acfdfbfd951c9a879e2e}{\index{Hash@{Hash}!hash\-\_\-6@{hash\-\_\-6}}
+\index{hash\-\_\-6@{hash\-\_\-6}!Hash@{Hash}}
+\subsubsection[{hash\-\_\-6}]{\setlength{\rightskip}{0pt plus 5cm}int hash\-\_\-6 (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{key, }
+\item[{int $\ast$}]{hash}
+\end{DoxyParamCaption}
+)}}\label{group__hash_gae1e43eb3a2f9acfdfbfd951c9a879e2e}
+
+
+hashes key 
+
+
+
+ hash\-\_\-6
+
+\begin{DoxyParagraph}{f (key) a combination of hash\-\_\-4 and hash\-\_\-5 functions}
+
+\end{DoxyParagraph}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em key} & key to hash \\
+\hline
+\mbox{\tt out}  & {\em hash} & hash value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-H\-A\-S\-H\-T\-A\-B\-L\-E} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__hash_ga5e0fa3c7b9b8ba7b3dcfefccf07a1434}{\index{Hash@{Hash}!Hashtable\-\_\-\-Add\-\_\-\-Key@{Hashtable\-\_\-\-Add\-\_\-\-Key}}
+\index{Hashtable\-\_\-\-Add\-\_\-\-Key@{Hashtable\-\_\-\-Add\-\_\-\-Key}!Hash@{Hash}}
+\subsubsection[{Hashtable\-\_\-\-Add\-\_\-\-Key}]{\setlength{\rightskip}{0pt plus 5cm}int Hashtable\-\_\-\-Add\-\_\-\-Key (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable, }
+\item[{const char $\ast$}]{key, }
+\item[{int($\ast$)(const char $\ast$key, int $\ast$hash)}]{hash}
+\end{DoxyParamCaption}
+)}}\label{group__hash_ga5e0fa3c7b9b8ba7b3dcfefccf07a1434}
+
+
+Add new element to one of hashtable's lists using hash function. 
+
+
+
+ Hashtable\-\_\-\-Add\-\_\-\-Key
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em hashtable} & pointer to hashtable \\
+\hline
+ & {\em key} & key to add \\
+\hline
+ & {\em hash} & pointer to hash function\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-H\-A\-S\-H\-T\-A\-B\-L\-E} & \\
+\hline
+\end{DoxyRetVals}
+\hypertarget{group__hash_ga1ae85ee59f675e249267850f117bb62e}{\index{Hash@{Hash}!Hashtable\-\_\-\-Fill@{Hashtable\-\_\-\-Fill}}
+\index{Hashtable\-\_\-\-Fill@{Hashtable\-\_\-\-Fill}!Hash@{Hash}}
+\subsubsection[{Hashtable\-\_\-\-Fill}]{\setlength{\rightskip}{0pt plus 5cm}int Hashtable\-\_\-\-Fill (
+\begin{DoxyParamCaption}
+\item[{{\bf hashtable\-\_\-t} $\ast$}]{hashtable, }
+\item[{F\-I\-L\-E $\ast$}]{input, }
+\item[{int($\ast$)(const char $\ast$key, int $\ast$hash)}]{hash}
+\end{DoxyParamCaption}
+)}}\label{group__hash_ga1ae85ee59f675e249267850f117bb62e}
+
+
+Fills hashtable using words from input file. 
+
+
+
+ Hashtable\-\_\-\-Fill
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em hashtable} & pointer to hashtable \\
+\hline
+ & {\em input} & file descriptor \\
+\hline
+ & {\em hash} & pointer to hash function\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em E\-R\-R\-\_\-\-H\-A\-S\-H\-T\-A\-B\-L\-E} & \\
+\hline
+\end{DoxyRetVals}

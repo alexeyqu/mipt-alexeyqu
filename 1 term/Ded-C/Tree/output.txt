@@ -1,0 +1,45 @@
+(((( 2 ) + ( 2 )) * ( 2 )) / (( 2 ) - ( 2 )))
+
+ 2  2  +  2  *  2  2  -  / 
+
+Dump of tree [088660a0] - ok
+size = 9
+(
+	(
+		(
+			(
+				nil
+				2 | Size: 1 | Address: [08866110], Left: [00000000], Right: [00000000] Parent: [088660f0], Type: 1, ok
+				nil
+			)
+			43 | Size: 3 | Address: [088660f0], Left: [08866110], Right: [08866130] Parent: [088660d0], Type: 2, ok
+			(
+				nil
+				2 | Size: 1 | Address: [08866130], Left: [00000000], Right: [00000000] Parent: [088660f0], Type: 1, ok
+				nil
+			)
+		)
+		42 | Size: 5 | Address: [088660d0], Left: [088660f0], Right: [08866150] Parent: [088660b0], Type: 2, ok
+		(
+			nil
+			2 | Size: 1 | Address: [08866150], Left: [00000000], Right: [00000000] Parent: [088660d0], Type: 1, ok
+			nil
+		)
+	)
+	47 | Size: 9 | Address: [088660b0], Left: [088660d0], Right: [08866950] Parent: [00000000], Type: 2, ok
+	(
+		(
+			nil
+			2 | Size: 1 | Address: [08866970], Left: [00000000], Right: [00000000] Parent: [08866950], Type: 1, ok
+			nil
+		)
+		45 | Size: 3 | Address: [08866950], Left: [08866970], Right: [08866990] Parent: [088660b0], Type: 2, ok
+		(
+			nil
+			2 | Size: 1 | Address: [08866990], Left: [00000000], Right: [00000000] Parent: [08866950], Type: 1, ok
+			nil
+		)
+	)
+)
+Dump of tree [088660a0] finished.
+
