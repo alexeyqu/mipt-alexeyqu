@@ -1,2 +1,0 @@
-g++ Elem_functions.cpp List_functions.cpp Hash.h Hashtable_functions.cpp HF_old.cpp Hash_main.cpp Misc.cpp
-valgrind --tool=callgrind ./a.out
