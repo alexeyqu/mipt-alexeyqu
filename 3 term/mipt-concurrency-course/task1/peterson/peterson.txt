@@ -1,0 +1,58 @@
+ДЗ 1 -- Алгоритмы взаимного исключения
+
+Куликов Алексей, гр. 397
+
+1) Алгоритм Петерсона [peterson] - 2 балла
+
+Будет ли алгоритм Петерсона для двух потоков гарантировать взаимное исключение, если в doorway-секции метода lock поменять местами взвод флажка (want[t].store(true)) и запись в victim (victim.store(t))?
+
+Если да, то приведите доказательство корректности. Если нет, то приведите пример последовательного исполнения в модели чередования инструкций на одном процессоре, в котором вызов mtx.lock() из двух потоков приводит к нарушению взаимного исключения.
+
+Ответ: нет, не будет гарантировать.
+
+Решение:
+
+Код из презентации (поменяем местами 10 и 11 строки):
+
+1 class peterson_mutex {
+2   public:
+3       peterson_mutex() {
+4           want[0].store(false);
+5           want[1].store(false);
+6           victim.store(0);
+7       }
+8
+9       void lock(int t) {
+11           victim.store(t);
+10           want[t].store(true);
+12           while (want[1 - t].load() && victim.load() == t) {
+13               // wait
+14           }
+15       }
+16
+17       void unlock(int t) {
+18           want[t].store(false);
+19       }
+20
+21   private:
+22      std::array<std::atomic<bool>, 2> want;
+23      std::atomic<int> victim;
+24   };
+
+Пусть у нас есть 2 потока: A и B.
+
+Рассмотрим следующую последовательность команд, приводящую к одновременному выполнению критической секции:
+
+A: call lock(0)                           // want[0] = 0, want[1] = 0, victim = 0
+B: call lock(1)                           // want[0] = 0, want[1] = 0, victim = 0
+A: victim.store(0);                       // want[0] = 0, want[1] = 0, victim = 0
+B: victim.store(1);                       // want[0] = 0, want[1] = 0, victim = 1
+B: want[1].store(true);                   // want[0] = 0, want[1] = 1, victim = 1
+B: while (want[0].load() &&   // false
+          victim.load() == 1) // true => no wait, B goes to critical section
+
+A: want[0].store(true);                   // want[0] = 1, want[1] = 1, victim = 1
+A: while (want[1].load() &&   // true
+          victim.load() == 0) // false => no wait, A goes to critical section
+
+Now they are both in the critical section!
