@@ -17,7 +17,7 @@ class thread_safe_queue
 public:
   explicit thread_safe_queue()
   {
-      is_alive.store(true);
+      is_alive = true;
   }
 
   ~thread_safe_queue() {};
@@ -26,7 +26,7 @@ public:
   {
     std::unique_lock<std::mutex> locker(mutex);
 
-    if(!is_alive.load())
+    if(!is_alive)
     {
       throw std::logic_error("The queue is dead already");
     }
@@ -42,7 +42,7 @@ public:
 
     while(queue.empty())
     {
-      if(!is_alive.load())
+      if(!is_alive)
       {
           popped_value = Value();
 
@@ -63,7 +63,7 @@ public:
   {
     std::unique_lock<std::mutex> locker(mutex);
 
-    is_alive.store(false);
+    is_alive = false;
 
     queue_not_empty.notify_all();
   }
@@ -71,7 +71,7 @@ public:
 private:
   std::queue<Value> queue;
   std::mutex mutex;
-  std::atomic<bool> is_alive;
+  bool is_alive;
   std::condition_variable queue_not_empty;
 };
 

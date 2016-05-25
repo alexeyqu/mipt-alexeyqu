@@ -4,7 +4,6 @@
 #include <mutex>
 #include <condition_variable>
 #include <thread>
-#include <atomic>
 #include <vector>
 
 class barrier
@@ -12,7 +11,7 @@ class barrier
 public:
   explicit barrier(size_t num_threads_) : num_threads(num_threads_)
   {
-    cur_waiting.store(0);
+    cur_waiting = 0;
     epoch = 0;
   }
 
@@ -25,7 +24,7 @@ public:
     if(++cur_waiting == num_threads)
     {
       epoch++;
-      cur_waiting.store(0);
+      cur_waiting = 0;
       all_here.notify_all();
     }
     else
@@ -35,8 +34,7 @@ public:
   }
 
 private:
-  size_t num_threads, epoch;
-  std::atomic<size_t> cur_waiting;
+  size_t num_threads, epoch, cur_waiting;
   std::mutex mutex;
   std::condition_variable all_here;
 };
