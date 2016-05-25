@@ -1,0 +1,69 @@
+ДЗ 5 -- модели памяти
+
+Куликов Алексей, гр. 397
+
+Задача 3. Double-checked locking - 4 балла
+[double-checked-locking]
+
+std::atomic<Singleton*> pInstance = nullptr;
+std::mutex mutex;
+
+Singleton* getInstance() {
+    Singleton* p = pInstance.load();
+    if (p == nullptr) {
+        std::lock_guard<std::mutex> lock(mutex);
+        p = pInstance.load();
+            if (p == nullptr) {
+                p = new Singleton;
+            pInstance.store(p);
+            }
+    }
+    return p;
+}
+
+Какие минимальные упорядочивания памяти нужно расставить во всех атомарных операциях
+над pInstance, чтобы гарантировать корректность работы приведенного сниппета кода?
+
+Решение:
+
+Стоит сделать вот так:
+
+Singleton* getInstance() {
+    Singleton* p = pInstance.load(std::memory_order_acquire);
+    if (p == nullptr) {
+        std::lock_guard<std::mutex> lock(mutex);
+        p = pInstance.load(std::memory_order_relaxed);
+            if (p == nullptr) {
+                p = new Singleton;
+            pInstance.store(p, std::memory_order_release);
+            }
+    }
+    return p;
+}
+
+Почему этого хватит?
+Опять же, мы не хотим иметь обращения к ячейкам pInstance до начала CS и после её конца, поэтому на концах надо поставить acquire/release.
+В этом случае центральный вызов load уже не сможет переупорядочиться наружу, так что можно применить на нём relaxed.
+
+Можно ли лучше (т.е. слабее)? Да.
+
+Singleton* getInstance() {
+    Singleton* p = pInstance.load(std::memory_order_consume);
+    if (p == nullptr) {
+        std::lock_guard<std::mutex> lock(mutex);
+        p = pInstance.load(std::memory_order_consume);
+            if (p == nullptr) {
+                p = new Singleton;
+            pInstance.store(p, std::memory_order_release);
+            }
+    }
+    return p;
+}
+
+Мы знаем, что consume-семантика отличается от acquire тем, что она гарантирует
+видимость операций с памятью между потоками, но в случае наличия цепочек зависимостей данных (data dependency chain).
+
+В этом примере переменная p проходит через все важные load-store операции с разделяемой памятью,
+так что более слабое ограничение consume не поломает ничего (а быстрее может быть, о да).
+
+Слабее будет только полный relaxed, а мы такого не можем допустить, поскольку полетят все ограничения на реордеринги операций.

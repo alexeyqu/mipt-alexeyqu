@@ -21,7 +21,7 @@ void test_thread_pool(size_t num_workers)
 
 int main()
 {
-  test_thread_pool(2);
+  test_thread_pool(1);
 
   return 0;
 }

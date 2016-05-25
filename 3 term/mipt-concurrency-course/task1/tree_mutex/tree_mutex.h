@@ -52,13 +52,14 @@ public:
     void lock(std::size_t thread_index)
     {
         assert(thread_index >= 0 && thread_index < num_threads);
-        
-        std::atomic<std::size_t> index(thread_index);
 
-        for(std::atomic<std::size_t> i(tournament_tree.size() + index.load()); i.exchange((i.load() - 1)/2) > 0; )
+        size_t index = thread_index;
+
+        for(size_t i = tournament_tree.size() + index; i > 0; )
         {
-            tournament_tree[i.load()].lock(index.load() % 2);
-            index.store(index.load() / 2);
+            i = (i - 1)/2;
+            tournament_tree[i].lock(index % 2);
+            index /= 2;
         }
     }
 
@@ -66,32 +67,32 @@ public:
     {
         assert(thread_index >= 0 && thread_index < num_threads);
 
-        std::atomic<std::size_t> left_bound(0), right_bound(tournament_tree.size() + 1);
+        size_t left_bound = 0, right_bound = tournament_tree.size() + 1;
 
-        for(std::atomic<std::size_t> i(0); i.load() < tournament_tree.size(); )
+        for(size_t i = 0; i < tournament_tree.size(); )
         {
-            std::atomic<std::size_t> which_child(0);
+            size_t which_child = 0;
 
-            if((left_bound.load() + right_bound.load()) / 2 > thread_index)
+            if((left_bound + right_bound) / 2 > thread_index)
             {
-                which_child.store(LEFT);
+                which_child = LEFT;
             }
             else
             {
-                which_child.store(RIGHT);
+                which_child = RIGHT;
             }
 
-            tournament_tree[i.load()].unlock(which_child.load());
+            tournament_tree[i].unlock(which_child);
 
-            i.store(2 * i.load() + which_child.load() + 1);
+            i = (2 * i + which_child + 1);
 
-            if(which_child.load() == RIGHT)
+            if(which_child == RIGHT)
             {
-                left_bound.store((left_bound.load() + right_bound.load()) / 2);
+                left_bound = (left_bound + right_bound) / 2;
             }
             else
             {
-                right_bound.store((left_bound.load() + right_bound.load()) / 2);
+                right_bound = (left_bound + right_bound) / 2;
             }
         }
     }

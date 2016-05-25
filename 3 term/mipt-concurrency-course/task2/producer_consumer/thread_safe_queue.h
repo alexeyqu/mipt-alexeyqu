@@ -13,19 +13,19 @@ public:
   explicit thread_safe_queue(size_t capacity)
   {
     my_capacity = capacity;
-    is_alive.store(true);
+    is_alive = true;
   }
 
   ~thread_safe_queue() {};
 
   void enqueue(Value new_value)
   {
-    if(!is_alive.load())
+    std::unique_lock<std::mutex> lock_mutex(my_mutex);
+
+    if(!is_alive)
     {
       throw std::logic_error("The queue is dead already");
     }
-
-    std::unique_lock<std::mutex> lock_mutex(my_mutex);
 
     while(my_container.size() >= my_capacity)
     {
@@ -39,12 +39,12 @@ public:
 
   void pop(Value& popped_value)
   {
-    if(!is_alive.load() && my_container.empty())
+    std::unique_lock<std::mutex> lock_mutex(my_mutex);
+
+    if(!is_alive && my_container.empty())
     {
       throw std::logic_error("The queue is dead already");
     }
-
-    std::unique_lock<std::mutex> lock_mutex(my_mutex);
 
     while(my_container.empty())
     {
@@ -62,14 +62,14 @@ public:
 
   void shutdown()
   {
-    is_alive.store(false);
+    is_alive = false;
   }
 
 private:
   Container my_container;
   std::mutex my_mutex;
   size_t my_capacity;
-  std::atomic<bool> is_alive;
+  bool is_alive;
   std::condition_variable queue_not_empty;
   std::condition_variable queue_not_full;
 };

@@ -52,8 +52,6 @@ public:
       queue_not_empty.wait(locker);
     }
 
-    popped_value = Value();
-
     popped_value = std::move(queue.front());
 
     queue.pop();
@@ -87,8 +85,6 @@ public:
   {
     my_num_workers = num_workers;
 
-    is_alive.store(true);
-
     for(size_t index = 0; index < my_num_workers; index++)
     {
       workers.emplace_back(std::thread([this]() { this->run_worker(); }));
@@ -102,6 +98,8 @@ public:
 
   std::future<Value> submit(std::function<Value()> function)
   {
+    std::unique_lock<std::mutex> lock_mutex(my_shutdown_mutex);
+
     std::packaged_task<Value()> task(function);
     std::future<Value> future = task.get_future();
 
@@ -116,9 +114,7 @@ public:
 
     task_queue.shutdown();
 
-    is_alive.store(false);
-
-    pool_is_empty.wait(lock_mutex, [this]() { return !(this->is_alive.load()); } );
+    // run_worker();
 
     for(size_t index = 0; index < my_num_workers; index++)
     {
@@ -136,23 +132,15 @@ private:
     {
       std::packaged_task<Value()> task;
 
-      if(!task_queue.pop(task))
-      {
-        pool_is_empty.notify_one();
-
-        return;
-      }
+      if(!task_queue.pop(task)) return;
 
       task();
     }
   }
 
-  size_t my_num_workers;
-  std::atomic<bool> is_alive;
-
   std::mutex my_shutdown_mutex;
-  std::condition_variable pool_is_empty;
 
+  size_t my_num_workers;
   std::vector<std::thread> workers;
   thread_safe_queue<std::packaged_task<Value()>> task_queue;
 };

@@ -13,14 +13,14 @@ public:
   explicit barrier(size_t num_threads_) : num_threads(num_threads_)
   {
     cur_waiting.store(0);
-    epoch.store(0);
+    epoch = 0;
   }
 
   void enter()
   {
     std::unique_lock<std::mutex> locker(mutex);
 
-    size_t cur_epoch = epoch.load();
+    size_t cur_epoch = epoch;
 
     if(++cur_waiting == num_threads)
     {
@@ -30,13 +30,12 @@ public:
     }
     else
     {
-      all_here.wait(locker, [this, cur_epoch]() { return (cur_epoch != this->epoch.load()); } );
+      all_here.wait(locker, [this, cur_epoch]() { return (cur_epoch != this->epoch); } );
     }
   }
 
 private:
-  size_t num_threads;
-  std::atomic<size_t> epoch;
+  size_t num_threads, epoch;
   std::atomic<size_t> cur_waiting;
   std::mutex mutex;
   std::condition_variable all_here;

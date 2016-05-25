@@ -1,0 +1,91 @@
+ДЗ 5 -- модели памяти
+
+Куликов Алексей, гр. 397
+
+Задача 2. Упорядочивания для взаимного исключения - 4 балла
+[mutex-memory-model]
+
+1) Подберите максимально слабые упорядочивания чтений/записей для TAS спинлока.
+
+2) Подберите максимально слабые упорядочивания чтений/записей для мьютекса Петерсона, которые гарантировали бы его корректную работу.
+
+Решение:
+
+1)
+(wikipedia)
+enter_region:        ; A "jump to" tag; function entry
+
+point.
+
+  tsl reg, flag      ; Test and Set Lock; flag is the
+                     ; shared variable; it is copied
+                     ; into the register reg and flag
+                     ; then atomically set to 1.
+
+  cmp reg, #0        ; Was flag zero on entry_region?
+
+  jnz enter_region   ; Jump to enter_region if
+                     ; reg is non-zero; i.e.,
+                     ; flag was non-zero on entry.
+
+  ret                ; Exit; i.e., flag was zero on
+                     ; entry. If we get here, tsl
+                     ; will have set it non-zero; thus,
+                     ; we have claimed the resource
+                     ; associated with flag.
+
+leave_region:
+  move flag, #0      ; store 0 in flag
+  ret                ; return to caller
+
+Нам хватит acquire-семантики при захвате спинлока и, соответственно, release-семантики при его освобождении.
+
+Почему хватит?
+Цель простановки спинлока -- эксклюзивный проход в крит.секцию. Соответственно, никакие операции с памятью не должны выполняться до получения доступа туда.
+Иначе они случится data race, т.к. операции будут де-факто снаружи крит.секции.
+
+Аналогично, выход из крит.секции подразумевает, что все операции с разделяемой памятью произошли внутри неё.
+Тем самым, реордеринги операций с памятью вниз по program order за пределы CS -- это плохо.
+Это и запрещает release-семантика.
+
+Учитывая, что мы можем вызывать lock/unlock сколько угодно раз, просто acquire/release не хватает, т.к. нам надо установить связь между конкретными парами вызовов.
+Но поскольку спинлок крутится, пока не получит доступ к CS, то достигается соответствие получения флашка и _последнего_ unlock перед этим.
+
+Почему не хватит relaxed?
+Потому что она как раз не гарантирует отсутствия вот тех плохих реордерингов.
+
+2) Возьмём старую (из 1 дз имплементацию peterson_mutex) и дополним её
+
+class peterson_mutex
+{
+public:
+    peterson_mutex()
+    {
+        want[0].store(false, std::memory_order_relaxed); // ну просто потому, что это конструктор мьютекса и пока что конкретный порядок операций не играет роли
+        want[1].store(false, std::memory_order_relaxed);
+        victim.store(0, std::memory_order_relaxed);
+    }
+
+    void lock(int t)
+    {
+        want[t].store(true, std::memory_order_relaxed); // учитывая release после этого, можно по-максимуму расслабиться
+        victim.store(t, std::memory_order_release); // логический барьер задачи -- порядок выставления victim \
+        // мы не хотим, чтобы процессор поместил операцию отсюда между вызовами, относящимися к while
+
+        while (want[1 - t].load(std::memory_order_acquire) && // по той же причине, мы храним эти операции с памятью ниже while
+          victim.load(std::memory_order_relaxed) == t) // с acquire до victim.load мы можем забить на упорядочивания
+        {
+            std::this_thread::yield();
+        }
+     }
+
+    void unlock(int t)
+    {
+        want[t].store(false, std::memory_order_release); // потому что мы не хотим, \
+          чтобы какие-то операции над разделяемой памятью осуществлялись после unlock (выхода из CS)
+    }
+
+ private:
+    std::array<std::atomic<bool>, 2> want;
+    std::atomic<int> victim;
+};
