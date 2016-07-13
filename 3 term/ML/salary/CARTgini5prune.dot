@@ -1,0 +1,46 @@
+strict digraph G {0 [label="ID = 0 
+ X[5 (marriage)] : (2,) 
+ gini = 0.356 
+ samples = 1000"];0 -> 1;0 -> 2;1 [label="ID = 1 
+ X[4 (education-num)] : 10 
+ gini = 0.493 
+ samples = 443"];1 -> 3;1 -> 4;2 [label="ID = 2 
+ X[10 (capital-gain)] : 6849 
+ gini = 0.124 
+ samples = 557"];2 -> 5;2 -> 6;3 [label="ID = 3 
+ X[10 (capital-gain)] : 5013 
+ gini = 0.419 
+ samples = 281"];3 -> 7;3 -> 8;4 [label="ID = 4 
+ samples = 162"];5 [label="ID = 5 
+ X[4 (education-num)] : 12 
+ gini = 0.106 
+ samples = 550"];5 -> 11;5 -> 12;6 [label="ID = 6 
+ X[0 (age)] : 17 
+ gini = 0.245 
+ samples = 7"];6 -> 13;6 -> 14;7 [label="ID = 7 
+ samples = 269"];8 [label="ID = 8 
+ samples = 12"];11 [label="ID = 11 
+ X[0 (age)] : 43 
+ gini = 0.040 
+ samples = 440"];11 -> 23;11 -> 24;12 [label="ID = 12 
+ X[0 (age)] : 34 
+ gini = 0.320 
+ samples = 110"];12 -> 25;12 -> 26;13 [label="ID = 13 
+ samples = 1"];14 [label="ID = 14 
+ samples = 6"];23 [label="ID = 23 
+ X[1 (workclass)] : (1,) 
+ gini = 0.012 
+ samples = 337"];23 -> 47;23 -> 48;24 [label="ID = 24 
+ X[12 (hours/week)] : 40 
+ gini = 0.127 
+ samples = 103"];24 -> 49;24 -> 50;25 [label="ID = 25 
+ samples = 53"];26 [label="ID = 26 
+ X[12 (hours/week)] : 42 
+ gini = 0.456 
+ samples = 57"];26 -> 53;26 -> 54;47 [label="ID = 47 
+ samples = 5"];48 [label="ID = 48 
+ samples = 332"];49 [label="ID = 49 
+ samples = 85"];50 [label="ID = 50 
+ samples = 18"];53 [label="ID = 53 
+ samples = 30"];54 [label="ID = 54 
+ samples = 27"];}
