@@ -51,8 +51,6 @@ public:
       queue_not_empty.wait(lock_mutex);
     }
 
-    popped_value = Value();
-
     popped_value = std::move(my_container.front());
 
     my_container.pop_front();
