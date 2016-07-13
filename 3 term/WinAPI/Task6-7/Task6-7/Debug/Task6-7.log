@@ -1,0 +1,5 @@
+﻿  Dialog.cpp
+c:\workspace\abbyy\task6-7\task6-7\dialog.cpp(179): warning C4800: LRESULT: принудительно задано логическое значение "true" или "false" (предупреждение о производительности)
+c:\workspace\abbyy\task6-7\task6-7\dialog.cpp(209): warning C4805: ==: небезопасное смешение типа "BOOL" и типа "bool" в операции
+  Task6-7.vcxproj -> C:\workspace\ABBYY\Task6-7\Debug\Task6-7.exe
+  Task6-7.vcxproj -> C:\workspace\ABBYY\Task6-7\Debug\Task6-7.pdb (Partial PDB)

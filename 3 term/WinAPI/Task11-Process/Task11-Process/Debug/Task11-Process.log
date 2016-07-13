@@ -1,0 +1,4 @@
+﻿  MyNotepad.cpp
+c:\workspace\abbyy\task11-process\task11-process\mynotepad.cpp(470): warning C4018: <: несоответствие типов со знаком и без знака
+  Task11-Process.vcxproj -> C:\workspace\ABBYY\Task11-Process\Debug\Task11-Process.exe
+  Task11-Process.vcxproj -> C:\workspace\ABBYY\Task11-Process\Debug\Task11-Process.pdb (Partial PDB)

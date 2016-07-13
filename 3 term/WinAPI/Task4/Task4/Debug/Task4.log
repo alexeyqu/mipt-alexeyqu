@@ -1,0 +1,4 @@
+﻿  EditControl.cpp
+c:\workspace\abbyy\task4\task4\editcontrol.cpp(223): warning C4309: инициализация: усечение константного значения
+  Task4.vcxproj -> C:\workspace\ABBYY\Task4\Debug\Task4.exe
+  Task4.vcxproj -> C:\workspace\ABBYY\Task4\Debug\Task4.pdb (Partial PDB)

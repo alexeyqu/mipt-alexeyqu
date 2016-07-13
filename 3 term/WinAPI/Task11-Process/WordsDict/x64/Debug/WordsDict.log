@@ -1,0 +1,4 @@
+﻿  WordsDict.cpp
+  main.cpp
+  Создание кода...
+LINK : fatal error LNK1104: не удается открыть файл "C:\workspace\ABBYY\Task11-Process\x64\Debug\WordsDict.exe"

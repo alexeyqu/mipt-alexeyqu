@@ -1,0 +1,6 @@
+﻿  WordsDict.cpp
+c:\workspace\abbyy\task11-process\wordsdict\wordsdict.cpp(67): warning C4018: <: несоответствие типов со знаком и без знака
+  main.cpp
+  Создание кода...
+  WordsDict.vcxproj -> C:\workspace\ABBYY\Task11-Process\Debug\WordsDict.exe
+  WordsDict.vcxproj -> C:\workspace\ABBYY\Task11-Process\Debug\WordsDict.pdb (Partial PDB)

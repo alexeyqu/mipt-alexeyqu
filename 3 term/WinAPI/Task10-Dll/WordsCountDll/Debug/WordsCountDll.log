@@ -1,0 +1,5 @@
+﻿  stdafx.cpp
+  dllmain.cpp
+  WordsCountDll.cpp
+     Создается библиотека C:\workspace\ABBYY\Task10-Dll\Debug\WordsCountDll.lib и объект C:\workspace\ABBYY\Task10-Dll\Debug\WordsCountDll.exp
+  WordsCountDll.vcxproj -> C:\workspace\ABBYY\Task10-Dll\Debug\WordsCountDll.dll

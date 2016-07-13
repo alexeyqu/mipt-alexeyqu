@@ -1,0 +1,77 @@
+﻿  main.cpp
+  MyNotepad.cpp
+MyNotepad.cpp(21): error C2440: =: невозможно преобразовать "const wchar_t []" в "LPCSTR"
+  MyNotepad.cpp(21): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(27): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [22]" в "LPCSTR"
+  MyNotepad.cpp(27): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(46): error C2664: "HWND CreateWindowExA(DWORD,LPCSTR,LPCSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)": невозможно преобразовать аргумент 2 из "const wchar_t []" в "LPCSTR"
+  MyNotepad.cpp(46): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(50): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [21]" в "LPCSTR"
+  MyNotepad.cpp(50): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(74): error C2664: "BOOL CreateProcessA(LPCSTR,LPSTR,LPSECURITY_ATTRIBUTES,LPSECURITY_ATTRIBUTES,BOOL,DWORD,LPVOID,LPCSTR,LPSTARTUPINFOA,LPPROCESS_INFORMATION)": невозможно преобразовать аргумент 1 из "const wchar_t [54]" в "LPCSTR"
+  MyNotepad.cpp(74): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(76): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [20]" в "LPCSTR"
+  MyNotepad.cpp(76): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(90): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [24]" в "LPCSTR"
+  MyNotepad.cpp(90): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(187): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [15]" в "LPCSTR"
+  MyNotepad.cpp(187): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(195): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [23]" в "LPCSTR"
+  MyNotepad.cpp(195): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(205): error C2664: "HWND CreateWindowExA(DWORD,LPCSTR,LPCSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)": невозможно преобразовать аргумент 2 из "const wchar_t [5]" в "LPCSTR"
+  MyNotepad.cpp(205): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(209): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [21]" в "LPCSTR"
+  MyNotepad.cpp(209): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(226): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [31]" в "LPCSTR"
+  MyNotepad.cpp(226): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(260): error C2440: =: невозможно преобразовать "LPCWSTR" в "LPCSTR"
+  MyNotepad.cpp(260): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(261): error C2440: =: невозможно преобразовать "wchar_t [260]" в "LPSTR"
+  MyNotepad.cpp(261): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(264): error C2440: =: невозможно преобразовать "LPCWSTR" в "LPCSTR"
+  MyNotepad.cpp(264): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(268): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [22]" в "LPCSTR"
+  MyNotepad.cpp(268): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(277): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [17]" в "LPCSTR"
+  MyNotepad.cpp(277): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(289): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [16]" в "LPCSTR"
+  MyNotepad.cpp(289): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(309): error C2440: =: невозможно преобразовать "wchar_t [260]" в "LPSTR"
+  MyNotepad.cpp(309): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(312): error C2440: =: невозможно преобразовать "const wchar_t [20]" в "LPCSTR"
+  MyNotepad.cpp(312): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(321): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [22]" в "LPCSTR"
+  MyNotepad.cpp(321): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(326): error C2664: "HANDLE CreateFileA(LPCSTR,DWORD,DWORD,LPSECURITY_ATTRIBUTES,DWORD,DWORD,HANDLE)": невозможно преобразовать аргумент 1 из "LPWSTR" в "LPCSTR"
+  MyNotepad.cpp(326): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(330): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [17]" в "LPCSTR"
+  MyNotepad.cpp(330): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(339): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [18]" в "LPCSTR"
+  MyNotepad.cpp(339): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(352): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [17]" в "LPCSTR"
+  MyNotepad.cpp(352): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(363): error C2664: "BOOL SetWindowTextA(HWND,LPCSTR)": невозможно преобразовать аргумент 2 из "wchar_t *" в "LPCSTR"
+  MyNotepad.cpp(363): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(391): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "wchar_t [100]" в "LPCSTR"
+  MyNotepad.cpp(391): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(428): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "const wchar_t [26]" в "LPCSTR"
+  MyNotepad.cpp(428): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(440): error C2664: "HANDLE OpenEventA(DWORD,BOOL,LPCSTR)": невозможно преобразовать аргумент 3 из "LPCWSTR" в "LPCSTR"
+  MyNotepad.cpp(440): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(445): error C2664: "HANDLE OpenEventA(DWORD,BOOL,LPCSTR)": невозможно преобразовать аргумент 3 из "LPCWSTR" в "LPCSTR"
+  MyNotepad.cpp(445): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(450): error C2664: "HANDLE OpenEventA(DWORD,BOOL,LPCSTR)": невозможно преобразовать аргумент 3 из "LPCWSTR" в "LPCSTR"
+  MyNotepad.cpp(450): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(470): warning C4018: <: несоответствие типов со знаком и без знака
+MyNotepad.cpp(604): error C2440: инициализация: невозможно преобразовать "LPTSTR" в "std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>"
+  MyNotepad.cpp(604): note: Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+MyNotepad.cpp(605): error C2440: инициализация: невозможно преобразовать "LPTSTR" в "std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>"
+  MyNotepad.cpp(605): note: Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+MyNotepad.cpp(606): error C2440: инициализация: невозможно преобразовать "LPTSTR" в "std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>"
+  MyNotepad.cpp(606): note: Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+MyNotepad.cpp(607): error C2440: инициализация: невозможно преобразовать "LPTSTR" в "std::basic_string<wchar_t,std::char_traits<wchar_t>,std::allocator<wchar_t>>"
+  MyNotepad.cpp(607): note: Ни один конструктор не смог принять исходный тип, либо разрешение перегрузки конструктора неоднозначно
+MyNotepad.cpp(611): error C2664: "int MessageBoxA(HWND,LPCSTR,LPCSTR,UINT)": невозможно преобразовать аргумент 2 из "LPCWSTR" в "LPCSTR"
+  MyNotepad.cpp(611): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+MyNotepad.cpp(634): error C2664: "BOOL SetWindowTextA(HWND,LPCSTR)": невозможно преобразовать аргумент 2 из "LPCWSTR" в "LPCSTR"
+  MyNotepad.cpp(634): note: Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции

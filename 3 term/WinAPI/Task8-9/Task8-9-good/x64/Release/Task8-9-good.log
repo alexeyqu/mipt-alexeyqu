@@ -1,0 +1,24 @@
+﻿  CHeapManager.cpp
+CHeapManager.cpp(25): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  CHeapManagerLog.cpp
+  CHeapManagerMemSet.cpp
+  CHeapManagerMerge.cpp
+  CHeapManagerPageTable.cpp
+CHeapManagerPageTable.cpp(9): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+CHeapManagerPageTable.cpp(10): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+CHeapManagerPageTable.cpp(35): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+CHeapManagerPageTable.cpp(36): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  CTesters.cpp
+  main.cpp
+main.obj : error LNK2005: "class CHeapManager myHeap" (?myHeap@@3VCHeapManager@@A) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void __cdecl CRandomSize::operator delete(void *)" (??3CRandomSize@@SAXPEAX@Z) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void * __cdecl CRandomSize::operator new(unsigned __int64)" (??2CRandomSize@@SAPEAX_K@Z) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void __cdecl C4MB::operator delete(void *)" (??3C4MB@@SAXPEAX@Z) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void * __cdecl C4MB::operator new(unsigned __int64)" (??2C4MB@@SAPEAX_K@Z) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void __cdecl C256KB::operator delete(void *)" (??3C256KB@@SAXPEAX@Z) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void * __cdecl C256KB::operator new(unsigned __int64)" (??2C256KB@@SAPEAX_K@Z) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void __cdecl C64KB::operator delete(void *)" (??3C64KB@@SAXPEAX@Z) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void * __cdecl C64KB::operator new(unsigned __int64)" (??2C64KB@@SAPEAX_K@Z) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void __cdecl C1KB::operator delete(void *)" (??3C1KB@@SAXPEAX@Z) уже определен в CTesters.obj
+main.obj : error LNK2005: "public: static void * __cdecl C1KB::operator new(unsigned __int64)" (??2C1KB@@SAPEAX_K@Z) уже определен в CTesters.obj
+C:\workspace\ABBYY\Task8-9-good\x64\Release\Task8-9-good.exe : fatal error LNK1169: обнаружен многократно определенный символ - один или более

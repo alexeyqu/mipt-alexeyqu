@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WordsCountDll", "WordsCountDll\WordsCountDll.vcxproj", "{9DEDC4D0-AC44-4921-BB93-7B81FFD57722}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyNotepad", "MyNotepad\MyNotepad.vcxproj", "{BADF85AD-8BAB-462A-BCE2-B78886961A0D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9DEDC4D0-AC44-4921-BB93-7B81FFD57722} = {9DEDC4D0-AC44-4921-BB93-7B81FFD57722}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyNotepadDynamic", "MyNotepadDynamic\MyNotepadDynamic.vcxproj", "{1EA936B2-D7AF-4E03-931D-D67D302BF1A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DEDC4D0-AC44-4921-BB93-7B81FFD57722}.Debug|x64.ActiveCfg = Debug|x64
+		{9DEDC4D0-AC44-4921-BB93-7B81FFD57722}.Debug|x64.Build.0 = Debug|x64
+		{9DEDC4D0-AC44-4921-BB93-7B81FFD57722}.Debug|x86.ActiveCfg = Debug|Win32
+		{9DEDC4D0-AC44-4921-BB93-7B81FFD57722}.Debug|x86.Build.0 = Debug|Win32
+		{9DEDC4D0-AC44-4921-BB93-7B81FFD57722}.Release|x64.ActiveCfg = Release|x64
+		{9DEDC4D0-AC44-4921-BB93-7B81FFD57722}.Release|x64.Build.0 = Release|x64
+		{9DEDC4D0-AC44-4921-BB93-7B81FFD57722}.Release|x86.ActiveCfg = Release|Win32
+		{9DEDC4D0-AC44-4921-BB93-7B81FFD57722}.Release|x86.Build.0 = Release|Win32
+		{BADF85AD-8BAB-462A-BCE2-B78886961A0D}.Debug|x64.ActiveCfg = Debug|x64
+		{BADF85AD-8BAB-462A-BCE2-B78886961A0D}.Debug|x64.Build.0 = Debug|x64
+		{BADF85AD-8BAB-462A-BCE2-B78886961A0D}.Debug|x86.ActiveCfg = Debug|Win32
+		{BADF85AD-8BAB-462A-BCE2-B78886961A0D}.Debug|x86.Build.0 = Debug|Win32
+		{BADF85AD-8BAB-462A-BCE2-B78886961A0D}.Release|x64.ActiveCfg = Release|x64
+		{BADF85AD-8BAB-462A-BCE2-B78886961A0D}.Release|x64.Build.0 = Release|x64
+		{BADF85AD-8BAB-462A-BCE2-B78886961A0D}.Release|x86.ActiveCfg = Release|Win32
+		{BADF85AD-8BAB-462A-BCE2-B78886961A0D}.Release|x86.Build.0 = Release|Win32
+		{1EA936B2-D7AF-4E03-931D-D67D302BF1A1}.Debug|x64.ActiveCfg = Debug|x64
+		{1EA936B2-D7AF-4E03-931D-D67D302BF1A1}.Debug|x64.Build.0 = Debug|x64
+		{1EA936B2-D7AF-4E03-931D-D67D302BF1A1}.Debug|x86.ActiveCfg = Debug|Win32
+		{1EA936B2-D7AF-4E03-931D-D67D302BF1A1}.Debug|x86.Build.0 = Debug|Win32
+		{1EA936B2-D7AF-4E03-931D-D67D302BF1A1}.Release|x64.ActiveCfg = Release|x64
+		{1EA936B2-D7AF-4E03-931D-D67D302BF1A1}.Release|x64.Build.0 = Release|x64
+		{1EA936B2-D7AF-4E03-931D-D67D302BF1A1}.Release|x86.ActiveCfg = Release|Win32
+		{1EA936B2-D7AF-4E03-931D-D67D302BF1A1}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
